@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ViewModels\Admin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\Opening.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -54,6 +60,18 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Sys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Sys.Designer.cs">
+      <DependentUpon>Sys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Utente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Utente.Designer.cs">
+      <DependentUpon>Utente.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,7 +80,20 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ViewModels\Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\Opening.resx">
+      <DependentUpon>Opening.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\Sys.resx">
+      <DependentUpon>Sys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\Utente.resx">
+      <DependentUpon>Utente.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -76,10 +107,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="ViewModels\Admin\" />
-    <Folder Include="ViewModels\System\" />
-    <Folder Include="ViewModels\User\" />
+    <None Include="Resources\foto sns.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\popup_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
