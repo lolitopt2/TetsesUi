@@ -107,6 +107,30 @@
     <Compile Include="ViewModels\Admin.Designer.cs">
       <DependentUpon>Admin.cs</DependentUpon>
     </Compile>
+    <Compile Include="ViewModels\AdmView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewModels\AdmView.Designer.cs">
+      <DependentUpon>AdmView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ControlBaixa.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ControlBaixa.Designer.cs">
+      <DependentUpon>ControlBaixa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ControlInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ControlInfo.Designer.cs">
+      <DependentUpon>ControlInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ControlStan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\ControlStan.Designer.cs">
+      <DependentUpon>ControlStan.cs</DependentUpon>
+    </Compile>
     <Compile Include="ViewModels\Opening.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -146,6 +170,18 @@
     <EmbeddedResource Include="ViewModels\Admin.resx">
       <DependentUpon>Admin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\AdmView.resx">
+      <DependentUpon>AdmView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\ControlBaixa.resx">
+      <DependentUpon>ControlBaixa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\ControlInfo.resx">
+      <DependentUpon>ControlInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\ControlStan.resx">
+      <DependentUpon>ControlStan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewModels\Opening.resx">
       <DependentUpon>Opening.cs</DependentUpon>
     </EmbeddedResource>
@@ -172,12 +208,26 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\SNS.png" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Resources\foto sns.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\popup_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\document.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

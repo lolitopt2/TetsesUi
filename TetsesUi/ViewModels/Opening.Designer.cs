@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Opening));
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.SysButton = new System.Windows.Forms.Button();
             this.UtButton = new System.Windows.Forms.Button();
             this.ProButton = new System.Windows.Forms.Button();
@@ -38,19 +37,9 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Time = new System.Windows.Forms.Label();
             this.dbload = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::TetsesUi.Properties.Resources.popup_logo;
-            this.pictureBox1.ImageLocation = "";
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 54);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // SysButton
             // 
@@ -115,6 +104,17 @@
             this.dbload.Text = "DB Con";
             this.dbload.UseVisualStyleBackColor = true;
             this.dbload.Click += new System.EventHandler(this.dbload_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::TetsesUi.Properties.Resources.SNS;
+            this.pictureBox1.ImageLocation = "";
+            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(350, 100);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // Opening
             // 
