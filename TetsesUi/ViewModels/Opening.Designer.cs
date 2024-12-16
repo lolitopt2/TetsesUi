@@ -37,6 +37,7 @@
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.Time = new System.Windows.Forms.Label();
+            this.dbload = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             // SysButton
             // 
             this.SysButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.SysButton.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SysButton.Location = new System.Drawing.Point(340, 100);
             this.SysButton.Name = "SysButton";
             this.SysButton.Size = new System.Drawing.Size(142, 84);
@@ -65,6 +67,7 @@
             // UtButton
             // 
             this.UtButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UtButton.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UtButton.Location = new System.Drawing.Point(340, 190);
             this.UtButton.Name = "UtButton";
             this.UtButton.Size = new System.Drawing.Size(142, 84);
@@ -76,6 +79,7 @@
             // ProButton
             // 
             this.ProButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ProButton.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ProButton.Location = new System.Drawing.Point(340, 280);
             this.ProButton.Name = "ProButton";
             this.ProButton.Size = new System.Drawing.Size(142, 84);
@@ -101,12 +105,24 @@
             this.Time.Size = new System.Drawing.Size(2, 15);
             this.Time.TabIndex = 4;
             // 
+            // dbload
+            // 
+            this.dbload.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dbload.Location = new System.Drawing.Point(711, 414);
+            this.dbload.Name = "dbload";
+            this.dbload.Size = new System.Drawing.Size(77, 24);
+            this.dbload.TabIndex = 5;
+            this.dbload.Text = "DB Con";
+            this.dbload.UseVisualStyleBackColor = true;
+            this.dbload.Click += new System.EventHandler(this.dbload_Click);
+            // 
             // Opening
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Lavender;
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dbload);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.ProButton);
             this.Controls.Add(this.UtButton);
@@ -133,6 +149,7 @@
       
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label Time;
+        private System.Windows.Forms.Button dbload;
     }
 }
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace TetsesUi.ViewModels
 {
     public partial class Utente : Form
     {
+        private string connectionString = "Server=localhost;Database=sns;Uid=root;Pwd=;";
+
         public Utente()
         {
             InitializeComponent();
@@ -35,27 +38,60 @@ namespace TetsesUi.ViewModels
         {
 
         }
+        private bool VerifyLogin(string username, string password)
+        {
+            try
+            {
+                // Conectar ao banco de dados
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open(); // Abre a conexão
 
+                    // Consultar se o nome de usuário e a senha correspondem
+                    string query = "SELECT COUNT(*) FROM utentes WHERE ccNum = @ccNum AND Password = @Password";
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@ccNum", username);
+                        cmd.Parameters.AddWithValue("@Password", password); // A senha aqui está em texto simples (não recomendado para produção)
+
+                        int count = Convert.ToInt32(cmd.ExecuteScalar()); // Executa a consulta e obtém o número de registros
+
+                        return count > 0; // Se count for maior que 0, as credenciais são válidas
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao verificar login: " + ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
         private void LogUten_Click(object sender, EventArgs e)
         {
-            // Example: Verify if the TextBox is not empty
-            if (string.IsNullOrWhiteSpace(UtNum.Text) || string.IsNullOrWhiteSpace(PassTxt.Text))
+            string utNum = UtNum.Text.Trim(); // Pega o nome de usuário
+            string password = PassTxt.Text.Trim(); // Pega a senha
+
+            // Verifica se os campos não estão vazios
+            if (string.IsNullOrWhiteSpace(utNum) || string.IsNullOrWhiteSpace(password))
             {
-                MessageBox.Show("Prencha todos os dados", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Stop execution if the validation fails
+                MessageBox.Show("Por favor, preencha todos os campos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
 
-            // Example: Verify if the input is numeric
-            if (!int.TryParse(UtNum.Text, out int result))
+            // Verifica o login
+            if (VerifyLogin(utNum, password))
             {
-                MessageBox.Show("Preencha com o seu número", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return; // Stop execution if the validation fails
-            }
+                MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // If validation passes, open the new form
-            UtenteView newForm = new UtenteView();
-           newForm.Show(); // Open the new form
-            this.Hide();
+                
+         UtenteView form = new UtenteView();
+                 form.Show();
+                this.Hide(); 
+            }
+            else
+            {
+                MessageBox.Show("Nome de usuário ou senha inválidos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
