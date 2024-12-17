@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UtenteView));
             this.button1 = new System.Windows.Forms.Button();
             this.panelUtente = new System.Windows.Forms.Panel();
             this.button2 = new System.Windows.Forms.Button();
@@ -48,13 +49,13 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "LogOut";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelUtente
             // 
-            this.panelUtente.Location = new System.Drawing.Point(135, 53);
+            this.panelUtente.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.panelUtente.Location = new System.Drawing.Point(139, 53);
             this.panelUtente.Name = "panelUtente";
-            this.panelUtente.Size = new System.Drawing.Size(572, 322);
+            this.panelUtente.Size = new System.Drawing.Size(649, 322);
             this.panelUtente.TabIndex = 1;
             // 
             // button2
@@ -91,7 +92,7 @@
             // 
             this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox2.Image = global::TetsesUi.Properties.Resources.remove;
-            this.pictureBox2.Location = new System.Drawing.Point(713, 24);
+            this.pictureBox2.Location = new System.Drawing.Point(767, 24);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(21, 23);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -121,6 +122,8 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.panelUtente);
             this.Controls.Add(this.button1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "UtenteView";
             this.Text = "UtenteView";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

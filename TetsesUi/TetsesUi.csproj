@@ -101,6 +101,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoggedUser.cs" />
     <Compile Include="ViewModels\Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +131,12 @@
     </Compile>
     <Compile Include="ViewModels\ControlStan.Designer.cs">
       <DependentUpon>ControlStan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\DadosEdit.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\DadosEdit.Designer.cs">
+      <DependentUpon>DadosEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Opening.cs">
       <SubType>Form</SubType>
@@ -182,6 +189,9 @@
     <EmbeddedResource Include="ViewModels\ControlStan.resx">
       <DependentUpon>ControlStan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\DadosEdit.resx">
+      <DependentUpon>DadosEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ViewModels\Opening.resx">
       <DependentUpon>Opening.cs</DependentUpon>
     </EmbeddedResource>
@@ -228,6 +238,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\document.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\refresh.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

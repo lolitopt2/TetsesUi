@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,20 +11,29 @@ using System.Windows.Forms;
 
 namespace TetsesUi.ViewModels
 {
+
     public partial class UtenteView : Form
     {
+        private string connectionString = "Server=localhost;Database=sns;Uid=root;Pwd=;";
+
         public UtenteView()
         {
+         
             InitializeComponent();
             SetDefaultView();
+
+        
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Utente newForm = new Utente();
-            newForm.Show(); // Open the new form
-            this.Hide();
-        }
+
+
+   
+      
+
+
+
+
+       
         private void SwitchView(UserControl newView)
         {
             panelUtente.Controls.Clear(); // Remove o conteúdo atual do painel
@@ -32,7 +42,7 @@ namespace TetsesUi.ViewModels
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            SwitchView(new ControlBaixa()); // Carrega a view
+            SwitchView(new ControlInfo()); // Carrega a view
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

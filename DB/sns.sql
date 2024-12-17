@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16-Dez-2024 às 03:02
+-- Tempo de geração: 17-Dez-2024 às 18:12
 -- Versão do servidor: 10.4.32-MariaDB
 -- versão do PHP: 8.2.12
 
@@ -37,6 +37,14 @@ CREATE TABLE `baixas` (
   `Observacoes` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Extraindo dados da tabela `baixas`
+--
+
+INSERT INTO `baixas` (`BaixaID`, `MedicoID`, `UtenteID`, `DataInicio`, `DataFim`, `Motivo`, `Observacoes`) VALUES
+(1, 2, 1, '2024-12-16 14:34:03', '2024-12-16 14:34:03', 'dfgs', 'Doente'),
+(2, 2, 2, '2024-09-11 17:07:03', '2024-12-27 17:07:03', 'Dores', 'Coxa');
+
 -- --------------------------------------------------------
 
 --
@@ -49,9 +57,15 @@ CREATE TABLE `medicos` (
   `Especialidade` varchar(100) NOT NULL,
   `Email` varchar(100) NOT NULL,
   `Telefone` int(11) NOT NULL,
-  `Password` varchar(100) NOT NULL,
-  `SystemID` int(11) NOT NULL
+  `Password` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `medicos`
+--
+
+INSERT INTO `medicos` (`MedicoID`, `Nome`, `Especialidade`, `Email`, `Telefone`, `Password`) VALUES
+(2, 'Mrkl JR', 'Odontologia', 'fasfds', 916673784, '22222');
 
 -- --------------------------------------------------------
 
@@ -79,8 +93,17 @@ CREATE TABLE `utentes` (
   `Email` varchar(100) NOT NULL,
   `Telefone` int(11) NOT NULL,
   `Morada` varchar(100) NOT NULL,
-  `Password` varchar(100) NOT NULL
+  `Password` varchar(100) NOT NULL,
+  `ccNum` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Extraindo dados da tabela `utentes`
+--
+
+INSERT INTO `utentes` (`UtenteID`, `Nome`, `DataNasc`, `Email`, `Telefone`, `Morada`, `Password`, `ccNum`) VALUES
+(1, 'Jorge', '2015-12-02', 'epepepepeppe', 64654, 'ddddddddd', '12345', 11111),
+(2, 'Maria', '2015-12-10', 'dsfafadfadfs', 434353425, 'fasfsdafasdfa', '54321', 22222);
 
 --
 -- Índices para tabelas despejadas
@@ -98,8 +121,7 @@ ALTER TABLE `baixas`
 -- Índices para tabela `medicos`
 --
 ALTER TABLE `medicos`
-  ADD PRIMARY KEY (`MedicoID`),
-  ADD KEY `SystemID` (`SystemID`);
+  ADD PRIMARY KEY (`MedicoID`);
 
 --
 -- Índices para tabela `system`
@@ -121,13 +143,13 @@ ALTER TABLE `utentes`
 -- AUTO_INCREMENT de tabela `baixas`
 --
 ALTER TABLE `baixas`
-  MODIFY `BaixaID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `BaixaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `medicos`
 --
 ALTER TABLE `medicos`
-  MODIFY `MedicoID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `MedicoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `system`
@@ -139,7 +161,7 @@ ALTER TABLE `system`
 -- AUTO_INCREMENT de tabela `utentes`
 --
 ALTER TABLE `utentes`
-  MODIFY `UtenteID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `UtenteID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restrições para despejos de tabelas
@@ -151,12 +173,6 @@ ALTER TABLE `utentes`
 ALTER TABLE `baixas`
   ADD CONSTRAINT `baixas_ibfk_1` FOREIGN KEY (`MedicoID`) REFERENCES `medicos` (`MedicoID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `baixas_ibfk_2` FOREIGN KEY (`UtenteID`) REFERENCES `utentes` (`UtenteID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Limitadores para a tabela `medicos`
---
-ALTER TABLE `medicos`
-  ADD CONSTRAINT `medicos_ibfk_1` FOREIGN KEY (`SystemID`) REFERENCES `system` (`SystemID`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -45,7 +45,7 @@
             // 
             this.SysButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SysButton.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SysButton.Location = new System.Drawing.Point(340, 100);
+            this.SysButton.Location = new System.Drawing.Point(340, 118);
             this.SysButton.Name = "SysButton";
             this.SysButton.Size = new System.Drawing.Size(142, 84);
             this.SysButton.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             this.UtButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UtButton.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UtButton.Location = new System.Drawing.Point(340, 190);
+            this.UtButton.Location = new System.Drawing.Point(340, 208);
             this.UtButton.Name = "UtButton";
             this.UtButton.Size = new System.Drawing.Size(142, 84);
             this.UtButton.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             this.ProButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProButton.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProButton.Location = new System.Drawing.Point(340, 280);
+            this.ProButton.Location = new System.Drawing.Point(340, 298);
             this.ProButton.Name = "ProButton";
             this.ProButton.Size = new System.Drawing.Size(142, 84);
             this.ProButton.TabIndex = 3;
@@ -89,7 +89,7 @@
             this.Time.BackColor = System.Drawing.Color.Gray;
             this.Time.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Time.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Time.Location = new System.Drawing.Point(12, 78);
+            this.Time.Location = new System.Drawing.Point(12, 137);
             this.Time.Name = "Time";
             this.Time.Size = new System.Drawing.Size(2, 15);
             this.Time.TabIndex = 4;
@@ -111,7 +111,7 @@
             this.pictureBox1.ImageLocation = "";
             this.pictureBox1.Location = new System.Drawing.Point(12, 12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(350, 100);
+            this.pictureBox1.Size = new System.Drawing.Size(356, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;

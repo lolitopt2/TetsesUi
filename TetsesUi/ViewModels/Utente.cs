@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace TetsesUi.ViewModels
 {
@@ -25,20 +27,13 @@ namespace TetsesUi.ViewModels
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Reject the input
+                e.Handled = true; // Rejeita a entrada
             }
         }
 
-        private void UtNum_Enter(object sender, EventArgs e)
-        {
+      
 
-        }
-
-        private void UtNum_Leave(object sender, EventArgs e)
-        {
-
-        }
-        private bool VerifyLogin(string username, string password)
+        private bool VerifyLogin(string ccNum, string password)
         {
             try
             {
@@ -47,16 +42,33 @@ namespace TetsesUi.ViewModels
                 {
                     conn.Open(); // Abre a conexão
 
-                    // Consultar se o nome de usuário e a senha correspondem
-                    string query = "SELECT COUNT(*) FROM utentes WHERE ccNum = @ccNum AND Password = @Password";
+                    // Consultar se o ccNum e a senha correspondem e pegar o ID do utente
+                    string query = "SELECT UtenteID,Nome,Morada,Telefone,Email FROM utentes WHERE ccNum = @ccNum AND Password = @Password";
+
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@ccNum", username);
-                        cmd.Parameters.AddWithValue("@Password", password); // A senha aqui está em texto simples (não recomendado para produção)
+                        cmd.Parameters.AddWithValue("@ccNum", ccNum);
+                        cmd.Parameters.AddWithValue("@Password", password); // A senha em texto simples (não recomendado para produção)
 
-                        int count = Convert.ToInt32(cmd.ExecuteScalar()); // Executa a consulta e obtém o número de registros
+                        using (MySqlDataReader reader = cmd.ExecuteReader()) // Executa a consulta
+                        {
+                            if (reader.Read()) // Se encontrar o usuário
+                            {
+                                // Armazenar o UtenteId e o Nome na classe global LoggedUser
+                                LoggedUser.UtenteId = Convert.ToInt32(reader["UtenteID"]);
+                                LoggedUser.UtenteName = reader["Nome"].ToString();
+                                LoggedUser.UtenteMorada = reader["Morada"].ToString();
+                                LoggedUser.UtenteTele = reader["Telefone"].ToString();
+                                LoggedUser.UtenteEmail = reader["Email"].ToString();
 
-                        return count > 0; // Se count for maior que 0, as credenciais são válidas
+
+                                return true; // Login bem-sucedido
+                            }
+                            else
+                            {
+                                return false; // Login falhou
+                            }
+                        }
                     }
                 }
             }
@@ -66,27 +78,35 @@ namespace TetsesUi.ViewModels
                 return false;
             }
         }
+
+
         private void LogUten_Click(object sender, EventArgs e)
         {
-            string utNum = UtNum.Text.Trim(); // Pega o nome de usuário
+            string username = UtNum.Text.Trim(); // Pega o nome de usuário
             string password = PassTxt.Text.Trim(); // Pega a senha
 
             // Verifica se os campos não estão vazios
-            if (string.IsNullOrWhiteSpace(utNum) || string.IsNullOrWhiteSpace(password))
+            if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Por favor, preencha todos os campos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
             // Verifica o login
-            if (VerifyLogin(utNum, password))
+            if (VerifyLogin(username, password))
             {
+              
                 MessageBox.Show("Login bem-sucedido!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+         
+                UtenteView form = new UtenteView();
+
+            
+                form.Show();
+
                 
-         UtenteView form = new UtenteView();
-                 form.Show();
-                this.Hide(); 
+                this.Hide();
+
             }
             else
             {
@@ -95,3 +115,5 @@ namespace TetsesUi.ViewModels
         }
     }
 }
+
+
