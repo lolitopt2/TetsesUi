@@ -45,7 +45,7 @@
             // 
             this.SysButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.SysButton.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SysButton.Location = new System.Drawing.Point(340, 118);
+            this.SysButton.Location = new System.Drawing.Point(100, 105);
             this.SysButton.Name = "SysButton";
             this.SysButton.Size = new System.Drawing.Size(142, 84);
             this.SysButton.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             this.UtButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UtButton.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UtButton.Location = new System.Drawing.Point(340, 208);
+            this.UtButton.Location = new System.Drawing.Point(100, 195);
             this.UtButton.Name = "UtButton";
             this.UtButton.Size = new System.Drawing.Size(142, 84);
             this.UtButton.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             this.ProButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ProButton.Font = new System.Drawing.Font("Arial", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ProButton.Location = new System.Drawing.Point(340, 298);
+            this.ProButton.Location = new System.Drawing.Point(100, 285);
             this.ProButton.Name = "ProButton";
             this.ProButton.Size = new System.Drawing.Size(142, 84);
             this.ProButton.TabIndex = 3;
@@ -97,7 +97,7 @@
             // dbload
             // 
             this.dbload.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dbload.Location = new System.Drawing.Point(711, 414);
+            this.dbload.Location = new System.Drawing.Point(132, 389);
             this.dbload.Name = "dbload";
             this.dbload.Size = new System.Drawing.Size(77, 24);
             this.dbload.TabIndex = 5;
@@ -109,7 +109,7 @@
             // 
             this.pictureBox1.Image = global::TetsesUi.Properties.Resources.SNS;
             this.pictureBox1.ImageLocation = "";
-            this.pictureBox1.Location = new System.Drawing.Point(12, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(-3, -1);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(356, 100);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -121,7 +121,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(349, 434);
             this.Controls.Add(this.dbload);
             this.Controls.Add(this.Time);
             this.Controls.Add(this.ProButton);

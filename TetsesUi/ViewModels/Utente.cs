@@ -113,6 +113,17 @@ namespace TetsesUi.ViewModels
                 MessageBox.Show("Nome de usuário ou senha inválidos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Opening open = new Opening();
+
+
+            open.Show();
+
+
+            this.Hide();
+        }
     }
 }
 

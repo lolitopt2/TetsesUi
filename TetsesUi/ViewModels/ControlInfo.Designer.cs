@@ -132,7 +132,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "ControlInfo";
-            this.Size = new System.Drawing.Size(610, 322);
+            this.Size = new System.Drawing.Size(386, 322);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

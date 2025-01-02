@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoggedUser.cs" />
+    <Compile Include="SistemaU.cs" />
     <Compile Include="ViewModels\Admin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,11 +127,11 @@
     <Compile Include="ViewModels\ControlInfo.Designer.cs">
       <DependentUpon>ControlInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\ControlStan.cs">
+    <Compile Include="ViewModels\PanelView_VisaoUTENTE.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ViewModels\ControlStan.Designer.cs">
-      <DependentUpon>ControlStan.cs</DependentUpon>
+    <Compile Include="ViewModels\PanelView_VisaoUTENTE.Designer.cs">
+      <DependentUpon>PanelView_VisaoUTENTE.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\DadosEdit.cs">
       <SubType>UserControl</SubType>
@@ -151,6 +152,48 @@
     </Compile>
     <Compile Include="ViewModels\Sys.Designer.cs">
       <DependentUpon>Sys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\PanelView_VisaoSistema_Stretched.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\PanelView_VisaoSistema_Stretched.Designer.cs">
+      <DependentUpon>PanelView_VisaoSistema_Stretched.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\PanelVIEW_VisaoSistema.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\PanelVIEW_VisaoSistema.Designer.cs">
+      <DependentUpon>PanelVIEW_VisaoSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\SysProf.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\SysProf.Designer.cs">
+      <DependentUpon>SysProf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\Sysusers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\Sysusers.Designer.cs">
+      <DependentUpon>Sysusers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\SysB.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\SysB.Designer.cs">
+      <DependentUpon>SysB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\SysUtentes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ViewModels\SysUtentes.Designer.cs">
+      <DependentUpon>SysUtentes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\SysView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewModels\SysView.Designer.cs">
+      <DependentUpon>SysView.cs</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\Utente.cs">
       <SubType>Form</SubType>
@@ -186,8 +229,8 @@
     <EmbeddedResource Include="ViewModels\ControlInfo.resx">
       <DependentUpon>ControlInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewModels\ControlStan.resx">
-      <DependentUpon>ControlStan.cs</DependentUpon>
+    <EmbeddedResource Include="ViewModels\PanelView_VisaoUTENTE.resx">
+      <DependentUpon>PanelView_VisaoUTENTE.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewModels\DadosEdit.resx">
       <DependentUpon>DadosEdit.cs</DependentUpon>
@@ -197,6 +240,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ViewModels\Sys.resx">
       <DependentUpon>Sys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\PanelView_VisaoSistema_Stretched.resx">
+      <DependentUpon>PanelView_VisaoSistema_Stretched.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\PanelVIEW_VisaoSistema.resx">
+      <DependentUpon>PanelVIEW_VisaoSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\SysProf.resx">
+      <DependentUpon>SysProf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\Sysusers.resx">
+      <DependentUpon>Sysusers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\SysB.resx">
+      <DependentUpon>SysB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\SysUtentes.resx">
+      <DependentUpon>SysUtentes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewModels\SysView.resx">
+      <DependentUpon>SysView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ViewModels\Utente.resx">
       <DependentUpon>Utente.cs</DependentUpon>
@@ -241,6 +305,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\people.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\manager.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sneezing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\system2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sistema 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sistadmin.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

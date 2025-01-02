@@ -22,18 +22,7 @@ namespace TetsesUi.ViewModels
             InitializeComponent();
             SetDefaultView();
 
-        
         }
-
-
-
-   
-      
-
-
-
-
-       
         private void SwitchView(UserControl newView)
         {
             panelUtente.Controls.Clear(); // Remove o conteúdo atual do painel
@@ -47,7 +36,7 @@ namespace TetsesUi.ViewModels
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            SwitchView(new ControlStan()); // Carrega a view
+            SwitchView(new PanelView_VisaoUTENTE()); // Carrega a view
         }
         private void LoadView(UserControl view)
         {
@@ -57,13 +46,27 @@ namespace TetsesUi.ViewModels
         }
         private void SetDefaultView()
         {
-            ControlStan homeView = new ControlStan(); // Instancia a View padrão
+            PanelView_VisaoUTENTE homeView = new PanelView_VisaoUTENTE(); // Instancia a View padrão
             LoadView(homeView); // Carrega a View padrão no painel
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             SwitchView(new ControlBaixa()); // Carrega a view
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoggedUser.UtenteId = 0;  // Resetando o ID do Utente
+
+            // Exibir uma mensagem confirmando o logout
+            MessageBox.Show("Você foi desconectado com sucesso.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            // Redirecionar para a tela de login ou fechar o formulário atual
+            // Para redirecionar para o formulário de login:
+            Opening open = new Opening(); // Supondo que LoginForm seja o formulário de login
+            open.Show();
+            this.Hide();  // Oculta o formulário atual (opcional)
         }
     }
 }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace TetsesUi.ViewModels
 {
-    public partial class ControlStan : UserControl
+    public partial class PanelView_VisaoUTENTE : UserControl
     {
-        public ControlStan()
+        public PanelView_VisaoUTENTE()
         {
             InitializeComponent();
         }

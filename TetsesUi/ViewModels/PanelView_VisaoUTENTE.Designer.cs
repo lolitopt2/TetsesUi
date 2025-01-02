@@ -1,6 +1,6 @@
 ﻿namespace TetsesUi.ViewModels
 {
-    partial class ControlStan
+    partial class PanelView_VisaoUTENTE
     {
         /// <summary> 
         /// Variável de designer necessária.
