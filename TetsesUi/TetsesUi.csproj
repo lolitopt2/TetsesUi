@@ -102,6 +102,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="LoggedUser.cs" />
+    <Compile Include="ProClass.cs" />
     <Compile Include="SistemaU.cs" />
     <Compile Include="ViewModels\Admin.cs">
       <SubType>Form</SubType>

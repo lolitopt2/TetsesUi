@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,10 +19,19 @@ namespace TetsesUi.ViewModels
 
         public UtenteView()
         {
-         
+
             InitializeComponent();
             SetDefaultView();
+            IniciarCheckBaixasComDelay();
 
+        }
+        private async void IniciarCheckBaixasComDelay()
+        {
+         
+            await Task.Delay(5000); 
+
+  
+            CheckBaixas();
         }
         private void SwitchView(UserControl newView)
         {
@@ -52,21 +62,77 @@ namespace TetsesUi.ViewModels
 
         private void button3_Click(object sender, EventArgs e)
         {
-            SwitchView(new ControlBaixa()); // Carrega a view
+            SwitchView(new ControlBaixa());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LoggedUser.UtenteId = 0;  // Resetando o ID do Utente
+            LoggedUser.UtenteId = 0;  
 
-            // Exibir uma mensagem confirmando o logout
+          
             MessageBox.Show("Você foi desconectado com sucesso.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-            // Redirecionar para a tela de login ou fechar o formulário atual
-            // Para redirecionar para o formulário de login:
-            Opening open = new Opening(); // Supondo que LoginForm seja o formulário de login
+            Opening open = new Opening(); 
             open.Show();
-            this.Hide();  // Oculta o formulário atual (opcional)
+            this.Hide();  
+        }
+        private void CheckBaixas()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+
+                    string query = @"
+                SELECT DataFim 
+                FROM Baixas 
+                WHERE UtenteId = @UtenteId 
+                  AND DataFim <= @DataFim 
+                  AND Estado != 'Inválida';";
+
+
+
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        
+                        cmd.Parameters.AddWithValue("@UtenteId", LoggedUser.UtenteId);
+                        cmd.Parameters.AddWithValue("@DataFim", DateTime.Today.AddDays(3));
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                               
+                               
+                                DateTime dataFim = Convert.ToDateTime(reader["DataFim"]);
+
+                                MessageBox.Show(
+                                    $"A baixa  está prestes a chegar ao fim  {dataFim:dd/MM/yyyy}.",
+                                    "Alerta de Baixa",
+                                    MessageBoxButtons.OK,
+                                    MessageBoxIcon.Information
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+             
+                MessageBox.Show(
+                    $"Erro ao buscar os dados: {ex.Message}",
+                    "Erro",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Error
+                );
+            }
         }
     }
+
 }
+
+            
