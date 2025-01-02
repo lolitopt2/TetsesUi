@@ -18,7 +18,7 @@ namespace TetsesUi.ViewModels
     public partial class ControlInfo : UserControl
     {
         private string connectionString = "Server=localhost;Database=sns;Uid=root;Pwd=;";
-        private string connectionString2 = "Server=localhost;Database=sns;Uid=root;Pwd=;";
+     
 
 
         public ControlInfo()

@@ -89,7 +89,7 @@
             this.Time.BackColor = System.Drawing.Color.Gray;
             this.Time.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.Time.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Time.Location = new System.Drawing.Point(12, 137);
+            this.Time.Location = new System.Drawing.Point(146, 371);
             this.Time.Name = "Time";
             this.Time.Size = new System.Drawing.Size(2, 15);
             this.Time.TabIndex = 4;
@@ -120,7 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(349, 434);
             this.Controls.Add(this.dbload);
             this.Controls.Add(this.Time);
