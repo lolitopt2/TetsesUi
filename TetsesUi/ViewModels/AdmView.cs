@@ -16,5 +16,23 @@ namespace TetsesUi.ViewModels
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            LoggedUser.UtenteId = 0;
+
+
+            MessageBox.Show("Você foi desconectado com sucesso.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            Opening open = new Opening();
+            open.Show();
+            this.Hide();
+        }
+
+
+
+
+
+
     }
 }

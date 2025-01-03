@@ -46,7 +46,7 @@
             this.LogUten.Location = new System.Drawing.Point(134, 288);
             this.LogUten.Name = "LogUten";
             this.LogUten.Size = new System.Drawing.Size(75, 23);
-            this.LogUten.TabIndex = 14;
+            this.LogUten.TabIndex = 5;
             this.LogUten.Text = "Login";
             this.LogUten.UseVisualStyleBackColor = true;
             this.LogUten.Click += new System.EventHandler(this.LogUten_Click);
@@ -56,7 +56,7 @@
             this.ProNum.Location = new System.Drawing.Point(132, 195);
             this.ProNum.Name = "ProNum";
             this.ProNum.Size = new System.Drawing.Size(84, 20);
-            this.ProNum.TabIndex = 13;
+            this.ProNum.TabIndex = 2;
             this.ProNum.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // PassTxt
@@ -66,7 +66,7 @@
             this.PassTxt.Name = "PassTxt";
             this.PassTxt.RejectInputOnFirstFailure = true;
             this.PassTxt.Size = new System.Drawing.Size(84, 20);
-            this.PassTxt.TabIndex = 12;
+            this.PassTxt.TabIndex = 4;
             this.PassTxt.UseSystemPasswordChar = true;
             // 
             // label3
@@ -76,7 +76,7 @@
             this.label3.Location = new System.Drawing.Point(130, 227);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 19);
-            this.label3.TabIndex = 11;
+            this.label3.TabIndex = 3;
             this.label3.Text = "Password:";
             // 
             // label2
@@ -86,18 +86,19 @@
             this.label2.Location = new System.Drawing.Point(145, 173);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 19);
-            this.label2.TabIndex = 10;
+            this.label2.TabIndex = 1;
             this.label2.Text = "Email:";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial", 21.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(55, 103);
+            this.label1.Location = new System.Drawing.Point(59, 114);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(235, 34);
-            this.label1.TabIndex = 9;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Serviços Baixas";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 

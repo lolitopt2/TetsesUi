@@ -115,6 +115,11 @@ namespace TetsesUi.ViewModels.Admin
                 MessageBox.Show("Email ou senha inválidos. Tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
