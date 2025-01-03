@@ -92,6 +92,11 @@ namespace TetsesUi.ViewModels
             mainForm.Show();
             this.Hide();
         }
+
+        private void lblNome_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

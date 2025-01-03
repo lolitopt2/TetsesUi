@@ -60,9 +60,10 @@
             this.lblNome.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNome.Location = new System.Drawing.Point(145, 118);
             this.lblNome.Name = "lblNome";
-            this.lblNome.Size = new System.Drawing.Size(44, 16);
+            this.lblNome.Size = new System.Drawing.Size(48, 16);
             this.lblNome.TabIndex = 2;
-            this.lblNome.Text = "Nome";
+            this.lblNome.Text = "Nome:";
+            this.lblNome.Click += new System.EventHandler(this.lblNome_Click);
             // 
             // lblPass
             // 
@@ -70,9 +71,9 @@
             this.lblPass.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPass.Location = new System.Drawing.Point(133, 174);
             this.lblPass.Name = "lblPass";
-            this.lblPass.Size = new System.Drawing.Size(68, 16);
+            this.lblPass.Size = new System.Drawing.Size(72, 16);
             this.lblPass.TabIndex = 3;
-            this.lblPass.Text = "Password";
+            this.lblPass.Text = "Password:";
             // 
             // button1
             // 

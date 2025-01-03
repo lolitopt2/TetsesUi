@@ -10,8 +10,7 @@ public static class LoggedUser
     {
         public static int UtenteId { get; set; }
         public static string UtenteName { get;set; }
-        public static string UtenteEmail { get;
-            set; }
+        public static string UtenteEmail { get;set; }
         public static string UtenteTele { get; set; }  
         public static string UtenteMorada { get; set; }
     }

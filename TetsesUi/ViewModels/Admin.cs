@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,35 +21,12 @@ namespace TetsesUi.ViewModels.Admin
         }
         private string connectionString = "Server=localhost;Database=sns;Uid=root;Pwd=;";
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            string email = ProNum.Text;
-            string password = PassTxt.Text;
-
-            bool isLoggedIn = ValidateLogin(email, password); // Método para validar o login
-
-            if (isLoggedIn)
-            {
-                // Caso o login seja válido, redireciona para a tela principal
-                MessageBox.Show("Login realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                // Redirecionar para o formulário principal
-                AdmView mainForm = new AdmView();
-                mainForm.Show();
-                this.Hide();  // Esconde o formulário de login
-            }
-            else
-            {
-                MessageBox.Show("Email ou senha inválidos. Tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         // Método que valida o login e armazena os dados do usuário logado na classe SistemaU
         private bool ValidateLogin(string email, string password)
         {
 
 
-            string query = "SELECT * FROM medicos WHERE Nome = @Email AND Password = @Password";
+            string query = "SELECT * FROM medicos WHERE Email = @Email AND Password = @Password";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -58,7 +36,7 @@ namespace TetsesUi.ViewModels.Admin
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Nome", email);
+                        command.Parameters.AddWithValue("@Email", email);
                         command.Parameters.AddWithValue("@Password", password);
 
                         // Executa a consulta e verifica se retornou algum registro
@@ -66,9 +44,10 @@ namespace TetsesUi.ViewModels.Admin
                         {
                             if (reader.Read())
                             {
-                                // Armazena os dados do usuário logado na classe SistemaU (propriedades estáticas)
-                                SistemaU.SystemID = reader.GetInt32("SystemID");
-                                SistemaU.Nome = reader.GetString("Nome");
+                               
+                                ProClass.MedicoId = Convert.ToInt32(reader["MedicoID"]);  // Presumo que o ID do médico seja MedicoID
+                                ProClass.Email = reader["Nome"].ToString();  // O nome do médico
+                                ProClass.Password = reader["Email"].ToString();  // O email do médico
 
                                 return true;  // Login válido
                             }
@@ -113,7 +92,31 @@ namespace TetsesUi.ViewModels.Admin
             mainForm.Show();
             this.Hide();
         }
+
+        private void LogUten_Click(object sender, EventArgs e)
+        {
+            string email = ProNum.Text;
+            string password = PassTxt.Text;
+
+            bool isLoggedIn = ValidateLogin(email, password); // Método para validar o login
+
+            if (isLoggedIn)
+            {
+                // Caso o login seja válido, redireciona para a tela principal
+                MessageBox.Show("Login realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                // Redirecionar para o formulário principal
+                AdmView mainForm = new AdmView();
+                mainForm.Show();
+                this.Hide();  // Esconde o formulário de login
+            }
+            else
+            {
+                MessageBox.Show("Email ou senha inválidos. Tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
+
 
 

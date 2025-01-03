@@ -43,12 +43,13 @@
             // 
             // LogUten
             // 
-            this.LogUten.Location = new System.Drawing.Point(141, 286);
+            this.LogUten.Location = new System.Drawing.Point(134, 288);
             this.LogUten.Name = "LogUten";
             this.LogUten.Size = new System.Drawing.Size(75, 23);
             this.LogUten.TabIndex = 14;
             this.LogUten.Text = "Login";
             this.LogUten.UseVisualStyleBackColor = true;
+            this.LogUten.Click += new System.EventHandler(this.LogUten_Click);
             // 
             // ProNum
             // 
@@ -74,9 +75,9 @@
             this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(130, 227);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(86, 19);
+            this.label3.Size = new System.Drawing.Size(92, 19);
             this.label3.TabIndex = 11;
-            this.label3.Text = "Password";
+            this.label3.Text = "Password:";
             // 
             // label2
             // 
@@ -84,9 +85,9 @@
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(145, 173);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 19);
+            this.label2.Size = new System.Drawing.Size(57, 19);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Email";
+            this.label2.Text = "Email:";
             // 
             // label1
             // 
