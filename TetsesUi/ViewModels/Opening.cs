@@ -23,7 +23,7 @@ namespace TetsesUi
 
         private void Opening_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -83,6 +83,11 @@ namespace TetsesUi
                 // Handle any actions if the connection failed
                 MessageBox.Show("Confirma tudo denovo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

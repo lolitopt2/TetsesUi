@@ -85,6 +85,13 @@ namespace TetsesUi.ViewModels
 
             return false; // Login inválido
         }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            Opening mainForm = new Opening();
+            mainForm.Show();
+            this.Hide();
+        }
     }
     
 }
