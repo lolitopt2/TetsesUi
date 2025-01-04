@@ -41,7 +41,14 @@ namespace TetsesUi.ViewModels
             SwitchView(new ControlInfoMed()); // Carrega a view
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            SwitchView(new PanelView_VisaoUTENTE());
+        }
 
-
+        private void button3_Click(object sender, EventArgs e)
+        {
+            SwitchView(new ControlBaixaMed());
+        }
     }
 }

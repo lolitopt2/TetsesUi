@@ -101,6 +101,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlBaixaMed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlBaixaMed.Designer.cs">
+      <DependentUpon>ControlBaixaMed.cs</DependentUpon>
+    </Compile>
     <Compile Include="ControlInfoMed.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -214,6 +220,9 @@
     <Compile Include="ViewModels\UtenteView.Designer.cs">
       <DependentUpon>UtenteView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ControlBaixaMed.resx">
+      <DependentUpon>ControlBaixaMed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ControlInfoMed.resx">
       <DependentUpon>ControlInfoMed.cs</DependentUpon>
     </EmbeddedResource>
