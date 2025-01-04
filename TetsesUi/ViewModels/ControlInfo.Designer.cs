@@ -88,6 +88,7 @@
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(2, 17);
             this.lblNome.TabIndex = 10;
+            this.lblNome.Click += new System.EventHandler(this.lblNome_Click);
             // 
             // lblEmail
             // 

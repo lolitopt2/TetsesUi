@@ -8,9 +8,11 @@ namespace TetsesUi
 {
     public static class ProClass
     {
-        public static int MedicoId { get; set; }
-        public static string Email { get; set; }
+        public static string Nome { get; set; }
+        public static int MedicoID { get; set; }
         public static string Password { get; set; }
-
+        public static string Especialidade { get; set; }
+        public static int Telefone { get; set; }
+        public static string Email { get; set; }
     }
 }

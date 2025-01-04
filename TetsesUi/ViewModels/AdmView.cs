@@ -29,8 +29,17 @@ namespace TetsesUi.ViewModels
             this.Hide();
         }
 
+        private void SwitchView(UserControl newView)
+        {
+            panelMedico.Controls.Clear(); // Remove o conteúdo atual do painel
+            panelMedico.Controls.Add(newView); // Adiciona o novo UserControl
+            newView.Dock = DockStyle.Fill; // Faz com que o controle ocupe o painel
+        }
 
-
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SwitchView(new ControlInfoMed()); // Carrega a view
+        }
 
 
 

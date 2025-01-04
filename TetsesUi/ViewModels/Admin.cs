@@ -45,7 +45,7 @@ namespace TetsesUi.ViewModels.Admin
                             if (reader.Read())
                             {
                                
-                                ProClass.MedicoId = Convert.ToInt32(reader["MedicoID"]);  // Presumo que o ID do médico seja MedicoID
+                                ProClass.MedicoID = Convert.ToInt32(reader["MedicoID"]);  // ID do médico
                                 ProClass.Email = reader["Nome"].ToString();  // O nome do médico
                                 ProClass.Password = reader["Email"].ToString();  // O email do médico
 

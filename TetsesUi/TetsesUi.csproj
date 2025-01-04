@@ -101,6 +101,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlInfoMed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ControlInfoMed.Designer.cs">
+      <DependentUpon>ControlInfoMed.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoggedUser.cs" />
     <Compile Include="ProClass.cs" />
     <Compile Include="SistemaU.cs" />
@@ -208,6 +214,9 @@
     <Compile Include="ViewModels\UtenteView.Designer.cs">
       <DependentUpon>UtenteView.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ControlInfoMed.resx">
+      <DependentUpon>ControlInfoMed.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
