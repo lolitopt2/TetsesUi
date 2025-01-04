@@ -31,14 +31,24 @@ namespace TetsesUi.ViewModels
 
         private void SwitchView(UserControl newView)
         {
-            panelMedico.Controls.Clear(); // Remove o conteúdo atual do painel
-            panelMedico.Controls.Add(newView); // Adiciona o novo UserControl
-            newView.Dock = DockStyle.Fill; // Faz com que o controle ocupe o painel
+            panelMedico.Controls.Clear();
+            panelMedico.Controls.Add(newView);
+            newView.Dock = DockStyle.Fill;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SwitchView(new ControlInfoMed()); // Carrega a view
+            // Instancia o ControlInfoMed
+            ControlInfoMed controlInfoMed = new ControlInfoMed();
+
+            // Instancia o DadosEditMed e passa para o painel do ControlInfoMed
+            DadosEditMed dadosEditMed = new DadosEditMed(); // Instancia o UserControl DadosEditMed
+
+            // Carrega a view ControlInfoMed e o UserControl DadosEditMed no painel
+            SwitchView(controlInfoMed);
+
+            // Agora, dentro da ControlInfoMed, queremos carregar o DadosEditMed no painel.
+            controlInfoMed.CarregarDadosEditMed(dadosEditMed);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

@@ -16,6 +16,14 @@ namespace TetsesUi
             MostrarInfoMedico();  // Exibe as informações preenchidas
         }
 
+        public void CarregarDadosEditMed(DadosEditMed dadosEditMed)
+        {
+            // Verifique se o painel existe (supondo que o painel seja 'panelMedico')
+            panel1.Controls.Clear(); // Limpa o painel antes de adicionar o novo UserControl
+            panel1.Controls.Add(dadosEditMed); // Adiciona o DadosEditMed ao painel
+            dadosEditMed.Dock = DockStyle.Fill; // Faz com que o DadosEditMed ocupe todo o painel
+        }
+
         // Método para preencher os dados de ProClass a partir do banco de dados
         private void PreencherProClass()
         {

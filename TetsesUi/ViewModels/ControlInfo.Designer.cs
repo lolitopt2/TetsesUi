@@ -53,7 +53,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.panel1.Location = new System.Drawing.Point(190, 22);
+            this.panel1.Location = new System.Drawing.Point(306, 22);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(183, 278);
             this.panel1.TabIndex = 6;
@@ -133,7 +133,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "ControlInfo";
-            this.Size = new System.Drawing.Size(386, 322);
+            this.Size = new System.Drawing.Size(514, 322);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -113,6 +113,12 @@
     <Compile Include="ControlInfoMed.Designer.cs">
       <DependentUpon>ControlInfoMed.cs</DependentUpon>
     </Compile>
+    <Compile Include="DadosEditMed.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DadosEditMed.Designer.cs">
+      <DependentUpon>DadosEditMed.cs</DependentUpon>
+    </Compile>
     <Compile Include="LoggedUser.cs" />
     <Compile Include="ProClass.cs" />
     <Compile Include="SistemaU.cs" />
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlInfoMed.resx">
       <DependentUpon>ControlInfoMed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DadosEditMed.resx">
+      <DependentUpon>DadosEditMed.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
