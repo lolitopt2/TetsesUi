@@ -1,4 +1,4 @@
-﻿namespace TetsesUi
+﻿namespace TetsesUi.ViewModels
 {
     partial class ControlBaixaMed
     {
