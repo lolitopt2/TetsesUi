@@ -4,7 +4,6 @@ using MySql.Data.MySqlClient;
 
 namespace TetsesUi
 {
-
     public partial class ControlInfoMed : UserControl
     {
         private string connectionString = "Server=localhost;Database=sns;Uid=root;Pwd=;";
@@ -18,10 +17,13 @@ namespace TetsesUi
 
         public void CarregarDadosEditMed(DadosEditMed dadosEditMed)
         {
-            // Verifique se o painel existe (supondo que o painel seja 'panelMedico')
-            panel1.Controls.Clear(); // Limpa o painel antes de adicionar o novo UserControl
-            panel1.Controls.Add(dadosEditMed); // Adiciona o DadosEditMed ao painel
-            dadosEditMed.Dock = DockStyle.Fill; // Faz com que o DadosEditMed ocupe todo o painel
+            // Limpa o painel e adiciona o controle de edição
+            panel1.Controls.Clear();
+            panel1.Controls.Add(dadosEditMed);
+            dadosEditMed.Dock = DockStyle.Fill;
+
+            // Registra o evento para recarregar informações quando os dados forem atualizados
+            dadosEditMed.DadosAtualizados += RecarregarInformacoes;
         }
 
         // Método para preencher os dados de ProClass a partir do banco de dados
@@ -33,28 +35,22 @@ namespace TetsesUi
                 {
                     conn.Open();
 
-                    // Consulta para pegar os dados do médico, usando o MedicoID
                     string query = "SELECT Nome, Especialidade, Telefone, Email FROM Medicos WHERE MedicoID = @MedicoID";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MedicoID", ProClass.MedicoID); // Assegura que o MedicoID está configurado
+                        cmd.Parameters.AddWithValue("@MedicoID", ProClass.MedicoID);
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
-                            if (reader.Read()) // Se um médico for encontrado
+                            if (reader.Read())
                             {
-                                // Preenche as propriedades de ProClass com os dados do banco
                                 ProClass.Nome = reader["Nome"].ToString();
                                 ProClass.Especialidade = reader["Especialidade"].ToString();
                                 ProClass.Telefone = Convert.ToInt32(reader["Telefone"]);
                                 ProClass.Email = reader["Email"].ToString();
-
-                                // Log para verificar se os dados foram carregados corretamente
-                                Console.WriteLine($"Dados do médico preenchidos: Nome = {ProClass.Nome}, Especialidade = {ProClass.Especialidade}, Telefone = {ProClass.Telefone}, Email = {ProClass.Email}");
                             }
                             else
                             {
-                                // Se o médico não for encontrado, exibe mensagem de erro
                                 MessageBox.Show("Médico não encontrado.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
@@ -63,7 +59,6 @@ namespace TetsesUi
             }
             catch (Exception ex)
             {
-                // Caso haja erro ao acessar o banco de dados
                 MessageBox.Show($"Erro ao buscar dados do médico: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -71,13 +66,8 @@ namespace TetsesUi
         // Método para exibir as informações do médico nas labels
         private void MostrarInfoMedico()
         {
-            // Verifica se os dados do médico estão carregados corretamente
             if (ProClass.MedicoID > 0)
             {
-                // Log para verificar os valores antes de exibir
-                Console.WriteLine($"Nome: {ProClass.Nome}, Especialidade: {ProClass.Especialidade}, Telefone: {ProClass.Telefone}, Email: {ProClass.Email}");
-
-                // Atribui os valores nas labels
                 lblNome2.Text = $"Nome: {ProClass.Nome}";
                 lblEspecialidade.Text = $"Especialidade: {ProClass.Especialidade}";
                 lblTel2.Text = $"Telefone: {ProClass.Telefone}";
@@ -85,10 +75,8 @@ namespace TetsesUi
             }
             else
             {
-                // Caso não tenha informações disponíveis
                 MessageBox.Show("Nenhum médico está logado ou informações inválidas.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                // Limpa os valores das Labels
                 lblNome2.Text = "Nome: ";
                 lblEspecialidade.Text = "Especialidade: ";
                 lblTel2.Text = "Telefone: ";
@@ -96,9 +84,11 @@ namespace TetsesUi
             }
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        // Método para recarregar informações após atualização
+        private void RecarregarInformacoes()
         {
-
+            PreencherProClass(); // Atualiza os dados em ProClass
+            MostrarInfoMedico(); // Atualiza a interface com os novos dados
         }
     }
 }

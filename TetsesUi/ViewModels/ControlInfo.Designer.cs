@@ -62,7 +62,7 @@
             // 
             this.pictureBox2.BackgroundImage = global::TetsesUi.Properties.Resources.refresh;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(157, 297);
+            this.pictureBox2.Location = new System.Drawing.Point(144, 287);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(27, 22);
             this.pictureBox2.TabIndex = 8;
