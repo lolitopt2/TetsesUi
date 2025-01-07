@@ -117,6 +117,9 @@ namespace TetsesUi
         private void button1_Click(object sender, EventArgs e)
         {
             AtualizarDadosMedico();
+            txtEspecialidade.Clear();
+            txtTelefone.Clear();
+            txtEmail.Clear();
         }
     }
 }

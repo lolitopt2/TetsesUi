@@ -113,6 +113,12 @@
     <Compile Include="ControlInfoMed.Designer.cs">
       <DependentUpon>ControlInfoMed.cs</DependentUpon>
     </Compile>
+    <Compile Include="CriarBaixaMedica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CriarBaixaMedica.Designer.cs">
+      <DependentUpon>CriarBaixaMedica.cs</DependentUpon>
+    </Compile>
     <Compile Include="DadosEditMed.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ControlInfoMed.resx">
       <DependentUpon>ControlInfoMed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CriarBaixaMedica.resx">
+      <DependentUpon>CriarBaixaMedica.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DadosEditMed.resx">
       <DependentUpon>DadosEditMed.cs</DependentUpon>

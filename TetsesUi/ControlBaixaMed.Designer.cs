@@ -71,6 +71,7 @@
             this.button_Criarbaixa.TabIndex = 5;
             this.button_Criarbaixa.Text = "Criar Nova Baixa";
             this.button_Criarbaixa.UseVisualStyleBackColor = true;
+            this.button_Criarbaixa.Click += new System.EventHandler(this.button_Criarbaixa_Click);
             // 
             // ControlBaixaMed
             // 

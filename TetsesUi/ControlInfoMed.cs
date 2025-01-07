@@ -88,7 +88,7 @@ namespace TetsesUi
         private void RecarregarInformacoes()
         {
             PreencherProClass(); // Atualiza os dados em ProClass
-            MostrarInfoMedico(); // Atualiza a interface com os novos dados
+            MostrarInfoMedico(); // Atualiza a interface com os novos dados 
         }
     }
 }

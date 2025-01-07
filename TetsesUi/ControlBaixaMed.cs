@@ -21,7 +21,6 @@ namespace TetsesUi.ViewModels
 
         private void LoadData()
         {
-            // Consulta para buscar as baixas associadas ao MedicoID logado
             string query = $"SELECT * FROM baixas WHERE MedicoID = {ProClass.MedicoID}";
 
             try
@@ -32,7 +31,6 @@ namespace TetsesUi.ViewModels
                     DataTable table = new DataTable();
                     adapter.Fill(table);
 
-                    // Associa os dados ao DataGridView
                     dataGridView1.DataSource = table;
                 }
             }
@@ -56,7 +54,7 @@ namespace TetsesUi.ViewModels
 
         private void GerarPDFPorID(int baixaID)
         {
-            // Busca os dados da baixa no banco de dados
+            
             DataRow dadosBaixa = ObterDadosBaixaDoBanco(baixaID);
 
             if (dadosBaixa == null)
@@ -119,7 +117,7 @@ namespace TetsesUi.ViewModels
             }
             else
             {
-                MessageBox.Show("Você não selecionou nenhuma pasta.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Nenhuma pasta foi selecionada.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -148,10 +146,26 @@ namespace TetsesUi.ViewModels
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Erro ao buscar dados do banco: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Erro ao selecionar dados do banco: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return tabela.Rows.Count > 0 ? tabela.Rows[0] : null;
         }
+
+        private void button_Criarbaixa_Click(object sender, EventArgs e)
+        {
+            {
+                CriarBaixaMedica form = new CriarBaixaMedica();
+                form.BaixaCriada += Form_BaixaCriada;
+                form.ShowDialog();
+            }
+        }
+
+        private void Form_BaixaCriada(object sender, EventArgs e)
+        {
+            // Quando o evento for disparado, recarrega os dados na tabela
+            LoadData();
+        }
+
     }
 }
