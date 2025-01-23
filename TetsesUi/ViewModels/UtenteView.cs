@@ -33,7 +33,7 @@ namespace TetsesUi.ViewModels
   
             CheckBaixas();
         }
-        private void SwitchView(UserControl newView)
+        public void SwitchView(UserControl newView)
         {
             panelUtente.Controls.Clear(); // Remove o conteúdo atual do painel
             panelUtente.Controls.Add(newView); // Adiciona o novo UserControl
@@ -41,7 +41,13 @@ namespace TetsesUi.ViewModels
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            SwitchView(new ControlInfo()); // Carrega a view
+            // Carrega o ControlInfo no painel principal
+            var controlInfo = new ControlInfo();
+            SwitchView(controlInfo);
+
+            // Instancia e carrega a view DadosEdit dentro do ControlInfo
+            var dadosEdit = new DadosEdit(); // Certifique-se de que DadosEdit é a view correta
+            controlInfo.CarregarDadosEditUtente(dadosEdit);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

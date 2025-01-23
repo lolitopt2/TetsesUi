@@ -67,7 +67,6 @@
             this.pictureBox2.Size = new System.Drawing.Size(27, 22);
             this.pictureBox2.TabIndex = 8;
             this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.button1_Click);
             // 
             // pictureBox1
             // 
@@ -88,7 +87,6 @@
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(2, 17);
             this.lblNome.TabIndex = 10;
-            this.lblNome.Click += new System.EventHandler(this.lblNome_Click);
             // 
             // lblEmail
             // 

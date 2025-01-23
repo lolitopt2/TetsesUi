@@ -14,20 +14,63 @@ namespace TetsesUi.ViewModels
     public partial class DadosEdit : UserControl
     {
         private string connectionString = "Server=localhost;Database=sns;Uid=root;Pwd=;";
+
+        // Evento para notificar sobre atualizações
+        public event Action DadosAtualizados;
         public DadosEdit()
         {
             InitializeComponent();
-          
-
+            CarregarDadosUtente();
+            LimparCampos();
         }
-       
+
+        // Método para limpar os campos
+        private void LimparCampos()
+        {
+            txtEmail.Clear();
+            txtMorada.Clear();
+            txtTele.Clear();
+        }
+
+        // Método para carregar os dados do utente
+        public void CarregarDadosUtente()
+        {
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string query = "SELECT Nome, Email, Telefone, Morada FROM UTENTES WHERE UtenteId = @UtenteID";
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@UtenteID", LoggedUser.UtenteId); // ID do utente logado
+
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                txtEmail.Text = reader["Email"].ToString();
+                                txtMorada.Text = reader["Morada"].ToString();
+                                txtTele.Text = reader["Telefone"].ToString();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Erro ao carregar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void AtualizarDadosUtente()
         {
             string novoEmail = txtEmail.Text.Trim();
             string novaMorada = txtMorada.Text.Trim();
             string novoTelefone = txtTele.Text.Trim();
 
-            // Verificar se pelo menos um campo foi preenchido
             if (string.IsNullOrEmpty(novoEmail) && string.IsNullOrEmpty(novaMorada) && string.IsNullOrEmpty(novoTelefone))
             {
                 MessageBox.Show("Por favor, preencha pelo menos um campo para atualizar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -36,35 +79,33 @@ namespace TetsesUi.ViewModels
 
             try
             {
-                // Conexão com o banco de dados
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
 
-                    // Construir a query dinamicamente
                     List<string> camposParaAtualizar = new List<string>();
                     if (!string.IsNullOrEmpty(novoEmail)) camposParaAtualizar.Add("Email = @Email");
                     if (!string.IsNullOrEmpty(novaMorada)) camposParaAtualizar.Add("Morada = @Morada");
                     if (!string.IsNullOrEmpty(novoTelefone)) camposParaAtualizar.Add("Telefone = @Telefone");
 
-                    // Montar a query final
-                    string query = $"UPDATE utentes SET {string.Join(", ", camposParaAtualizar)} WHERE UtenteID = @UtenteID";
+                    string query = $"UPDATE utentes SET {string.Join(", ", camposParaAtualizar)} WHERE UtenteId = @UtenteID";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        // Adicionar parâmetros apenas para os campos preenchidos
                         if (!string.IsNullOrEmpty(novoEmail)) cmd.Parameters.AddWithValue("@Email", novoEmail);
                         if (!string.IsNullOrEmpty(novaMorada)) cmd.Parameters.AddWithValue("@Morada", novaMorada);
                         if (!string.IsNullOrEmpty(novoTelefone)) cmd.Parameters.AddWithValue("@Telefone", novoTelefone);
 
-                        cmd.Parameters.AddWithValue("@UtenteID", LoggedUser.UtenteId); // ID do usuário logado
+                        cmd.Parameters.AddWithValue("@UtenteID", LoggedUser.UtenteId);
 
-                        // Executar o comando SQL
                         int linhasAfetadas = cmd.ExecuteNonQuery();
 
                         if (linhasAfetadas > 0)
                         {
                             MessageBox.Show("Dados atualizados com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                            // Dispara o evento de atualização
+                            DadosAtualizados?.Invoke();
                         }
                         else
                         {
@@ -78,23 +119,12 @@ namespace TetsesUi.ViewModels
                 MessageBox.Show($"Erro ao atualizar dados: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        private void KeyDown(object sender, KeyEventArgs e)
-        {
-            if ((e.Control && e.KeyCode == Keys.C) || (e.Control && e.KeyCode == Keys.V))
-            {
-                e.SuppressKeyPress = true; // Bloqueia a ação sem exibir a mensagem
-            }
-        }
-        private void KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
-            {
-                e.Handled = true; // Rejeita a entrada
-            }
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             AtualizarDadosUtente();
+            txtEmail.Clear();
+            txtTele.Clear();
+            txtMorada.Clear();
         }
     }
 }
