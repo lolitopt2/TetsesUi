@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CriarBaixaMedica));
             this.txtDataFim = new System.Windows.Forms.DateTimePicker();
             this.txtDataInicio = new System.Windows.Forms.DateTimePicker();
             this.btnSalvar = new System.Windows.Forms.Button();
@@ -180,9 +181,10 @@
             this.Controls.Add(this.labelUtente);
             this.Controls.Add(this.labelDatadeinicio);
             this.Controls.Add(this.txtMotivoBaixa);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CriarBaixaMedica";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CriarBaixaMedica";
+            this.Text = "Nova Baixa Médica";
             this.ResumeLayout(false);
             this.PerformLayout();
 

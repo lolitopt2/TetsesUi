@@ -21,12 +21,12 @@ namespace TetsesUi.ViewModels.Admin
         }
         private string connectionString = "Server=localhost;Database=sns;Uid=root;Pwd=;";
 
-        // Método que valida o login e armazena os dados do usuário logado na classe SistemaU
+        // Método que valida o login e armazena os dados do user logado na classe SistemaU
         private bool ValidateLogin(string email, string password)
         {
 
 
-            string query = "SELECT * FROM medicos WHERE Email = @Email AND Password = @Password";
+            string query = "SELECT * FROM medicos WHERE CCnum = @CCnum AND Password = @Password";
 
             using (MySqlConnection connection = new MySqlConnection(connectionString))
             {
@@ -36,7 +36,7 @@ namespace TetsesUi.ViewModels.Admin
 
                     using (MySqlCommand command = new MySqlCommand(query, connection))
                     {
-                        command.Parameters.AddWithValue("@Email", email);
+                        command.Parameters.AddWithValue("@CCnum", email);
                         command.Parameters.AddWithValue("@Password", password);
 
                         // Executa a consulta e verifica se retornou algum registro
@@ -48,6 +48,7 @@ namespace TetsesUi.ViewModels.Admin
                                 ProClass.MedicoID = Convert.ToInt32(reader["MedicoID"]);  // ID do médico
                                 ProClass.Email = reader["Nome"].ToString();  // O nome do médico
                                 ProClass.Password = reader["Email"].ToString();  // O email do médico
+                                ProClass.CCnum = Convert.ToInt32(reader["CCnum"]); // CCnum do médico
 
                                 return true;  // Login válido
                             }
@@ -62,13 +63,13 @@ namespace TetsesUi.ViewModels.Admin
 
             return false; // Login inválido
         }
-        private void txtEmail_Validating(object sender, System.ComponentModel.CancelEventArgs e)
+        private void txtCCnum_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             // Obtem o texto inserido na TextBox
             string vale = ProNum.Text.Trim();
 
             // Chama o método para verificar se o e-mail é válido
-            if (!IsEmailValid(vale))
+            if (!IsCCnumlValid(vale))
             {
                 // Exibe uma mensagem de erro caso não seja um e-mail válido
                 MessageBox.Show("Por favor, insira um e-mail válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -79,7 +80,7 @@ namespace TetsesUi.ViewModels.Admin
         }
 
         // Método para verificar se o e-mail é válido
-        private bool IsEmailValid(string vale)
+        private bool IsCCnumlValid(string vale)
         {
             // Expressão regular para validar e-mails
             string emailRegex = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
@@ -95,10 +96,10 @@ namespace TetsesUi.ViewModels.Admin
 
         private void LogUten_Click(object sender, EventArgs e)
         {
-            string email = ProNum.Text;
+            string cc = ProNum.Text;
             string password = PassTxt.Text;
 
-            bool isLoggedIn = ValidateLogin(email, password); // Método para validar o login
+            bool isLoggedIn = ValidateLogin(cc, password); // Método para validar o login
 
             if (isLoggedIn)
             {
@@ -112,7 +113,7 @@ namespace TetsesUi.ViewModels.Admin
             }
             else
             {
-                MessageBox.Show("Email ou senha inválidos. Tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Número de CC ou senha inválidos. Tente novamente.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

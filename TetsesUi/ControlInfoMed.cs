@@ -35,7 +35,7 @@ namespace TetsesUi
                 {
                     conn.Open();
 
-                    string query = "SELECT Nome, Especialidade, Telefone, Email FROM Medicos WHERE MedicoID = @MedicoID";
+                    string query = "SELECT Nome, Especialidade, Telefone, Email, Instituicao FROM Medicos WHERE MedicoID = @MedicoID";
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@MedicoID", ProClass.MedicoID);
@@ -48,6 +48,7 @@ namespace TetsesUi
                                 ProClass.Especialidade = reader["Especialidade"].ToString();
                                 ProClass.Telefone = Convert.ToInt32(reader["Telefone"]);
                                 ProClass.Email = reader["Email"].ToString();
+                                ProClass.Instituicao = reader["Instituicao"].ToString();
                             }
                             else
                             {
@@ -72,6 +73,8 @@ namespace TetsesUi
                 lblEspecialidade.Text = $"Especialidade: {ProClass.Especialidade}";
                 lblTel2.Text = $"Telefone: {ProClass.Telefone}";
                 lblEmail2.Text = $"Email: {ProClass.Email}";
+                lblInst.Text = $"Instituição: {ProClass.Instituicao}";
+
             }
             else
             {
@@ -81,6 +84,7 @@ namespace TetsesUi
                 lblEspecialidade.Text = "Especialidade: ";
                 lblTel2.Text = "Telefone: ";
                 lblEmail2.Text = "Email: ";
+                lblInst.Text = "Instituição:";
             }
         }
 
@@ -89,6 +93,11 @@ namespace TetsesUi
         {
             PreencherProClass(); // Atualiza os dados em ProClass
             MostrarInfoMedico(); // Atualiza a interface com os novos dados 
+        }
+
+        private void ControlInfoMed_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

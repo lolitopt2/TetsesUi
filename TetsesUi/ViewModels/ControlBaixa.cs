@@ -60,7 +60,7 @@ namespace TetsesUi.ViewModels
             // Obtém o ID do Utente armazenado na classe LoggedUser
             int utenteID = LoggedUser.UtenteId;
 
-            // Busca os dados da baixa no banco de dados
+            // Procura os dados da baixa no banco de dados
             DataRow dadosBaixa = ObterDadosBaixaDoBanco(baixaID);
 
             if (dadosBaixa == null)

@@ -370,5 +370,11 @@
   <ItemGroup>
     <None Include="Resources\sistadmin.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\foto-sns.ico" />
+    <None Include="Resources\icon.bmp" />
+    <None Include="Resources\1.png" />
+    <Content Include="Resources\profissional.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

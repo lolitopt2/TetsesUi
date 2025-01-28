@@ -14,5 +14,7 @@ namespace TetsesUi
         public static string Especialidade { get; set; }
         public static int Telefone { get; set; }
         public static string Email { get; set; }
+        public static int CCnum { get; set; }
+        public static string Instituicao { get; set; }
     }
 }

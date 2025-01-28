@@ -15,6 +15,7 @@ namespace TetsesUi.ViewModels
         public AdmView()
         {
             InitializeComponent();
+            SetDefaultView();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,12 +54,24 @@ namespace TetsesUi.ViewModels
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            SwitchView(new PanelView_VisaoUTENTE());
+            SwitchView(new PanelVIEW_VisaoSistema());
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             SwitchView(new ControlBaixaMed());
+        }
+
+        private void LoadView(UserControl view)
+        {
+            panelMedico.Controls.Clear(); // Limpa o conteúdo atual do painel
+            view.Dock = DockStyle.Fill; // Faz com que a View preencha o painel
+            panelMedico.Controls.Add(view); // Adiciona a nova View ao painel
+        }
+        private void SetDefaultView()
+        {
+            PanelVIEW_VisaoSistema homeView = new PanelVIEW_VisaoSistema(); // Instancia a View padrão
+            LoadView(homeView); // Carrega a View padrão no painel
         }
     }
 }

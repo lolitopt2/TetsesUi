@@ -57,7 +57,6 @@
             this.ProNum.Name = "ProNum";
             this.ProNum.Size = new System.Drawing.Size(84, 20);
             this.ProNum.TabIndex = 2;
-            this.ProNum.Validating += new System.ComponentModel.CancelEventHandler(this.txtEmail_Validating);
             // 
             // PassTxt
             // 
@@ -83,11 +82,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(145, 173);
+            this.label2.Location = new System.Drawing.Point(114, 173);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 19);
+            this.label2.Size = new System.Drawing.Size(127, 19);
             this.label2.TabIndex = 1;
-            this.label2.Text = "Email:";
+            this.label2.Text = "Número de CC:";
             // 
             // label1
             // 
@@ -103,7 +102,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::TetsesUi.Properties.Resources.SNS;
-            this.pictureBox1.Location = new System.Drawing.Point(-2, -2);
+            this.pictureBox1.Location = new System.Drawing.Point(51, 12);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(378, 92);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -135,11 +134,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Admin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Admin";
+            this.Text = "Profissional";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);

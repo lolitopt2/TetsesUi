@@ -35,6 +35,7 @@
             this.lblEmail2 = new System.Windows.Forms.Label();
             this.lblTel2 = new System.Windows.Forms.Label();
             this.lblEspecialidade = new System.Windows.Forms.Label();
+            this.lblInst = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -81,7 +82,7 @@
             this.lblEmail2.AutoSize = true;
             this.lblEmail2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblEmail2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEmail2.Location = new System.Drawing.Point(27, 234);
+            this.lblEmail2.Location = new System.Drawing.Point(27, 266);
             this.lblEmail2.Name = "lblEmail2";
             this.lblEmail2.Size = new System.Drawing.Size(2, 17);
             this.lblEmail2.TabIndex = 12;
@@ -91,7 +92,7 @@
             this.lblTel2.AutoSize = true;
             this.lblTel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblTel2.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTel2.Location = new System.Drawing.Point(27, 194);
+            this.lblTel2.Location = new System.Drawing.Point(27, 226);
             this.lblTel2.Name = "lblTel2";
             this.lblTel2.Size = new System.Drawing.Size(2, 17);
             this.lblTel2.TabIndex = 13;
@@ -101,15 +102,26 @@
             this.lblEspecialidade.AutoSize = true;
             this.lblEspecialidade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblEspecialidade.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEspecialidade.Location = new System.Drawing.Point(27, 149);
+            this.lblEspecialidade.Location = new System.Drawing.Point(27, 186);
             this.lblEspecialidade.Name = "lblEspecialidade";
             this.lblEspecialidade.Size = new System.Drawing.Size(2, 17);
             this.lblEspecialidade.TabIndex = 14;
+            // 
+            // lblInst
+            // 
+            this.lblInst.AutoSize = true;
+            this.lblInst.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblInst.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInst.Location = new System.Drawing.Point(27, 146);
+            this.lblInst.Name = "lblInst";
+            this.lblInst.Size = new System.Drawing.Size(2, 17);
+            this.lblInst.TabIndex = 15;
             // 
             // ControlInfoMed
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblInst);
             this.Controls.Add(this.lblEspecialidade);
             this.Controls.Add(this.lblTel2);
             this.Controls.Add(this.lblEmail2);
@@ -119,6 +131,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "ControlInfoMed";
             this.Size = new System.Drawing.Size(514, 322);
+            this.Load += new System.EventHandler(this.ControlInfoMed_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,5 +147,6 @@
         private System.Windows.Forms.Label lblEmail2;
         private System.Windows.Forms.Label lblTel2;
         private System.Windows.Forms.Label lblEspecialidade;
+        private System.Windows.Forms.Label lblInst;
     }
 }
