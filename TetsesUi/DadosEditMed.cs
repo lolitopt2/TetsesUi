@@ -9,16 +9,16 @@ namespace TetsesUi
     {
         private string connectionString = "Server=localhost;Database=sns;Uid=root;Pwd=;";
 
-        // Evento para notificar sobre atualizações
+  
         public event Action DadosAtualizados;
 
         public DadosEditMed()
         {
             InitializeComponent();
-            LimparCampos(); // Inicializar com campos vazios
+            LimparCampos(); 
         }
 
-        // Método para limpar os campos
+      
         private void LimparCampos()
         {
             txtEmail.Clear();
@@ -26,7 +26,7 @@ namespace TetsesUi
             txtTelefone.Clear();
         }
 
-        // Método para carregar os dados do médico
+   
         public void CarregarDadosMedico()
         {
             try
@@ -39,7 +39,7 @@ namespace TetsesUi
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@MedicoID", ProClass.MedicoID); // ID do médico logado
+                        cmd.Parameters.AddWithValue("@MedicoID", ProClass.MedicoID); 
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -59,7 +59,7 @@ namespace TetsesUi
             }
         }
 
-        // Método para atualizar os dados do médico
+      
         private void AtualizarDadosMedico()
         {
             string novoEmail = txtEmail.Text.Trim();
@@ -98,7 +98,7 @@ namespace TetsesUi
                         if (linhasAfetadas > 0)
                         {
                             MessageBox.Show("Dados atualizados com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            DadosAtualizados?.Invoke(); // Disparar evento para notificar atualização
+                            DadosAtualizados?.Invoke(); 
                         }
                         else
                         {
@@ -113,7 +113,7 @@ namespace TetsesUi
             }
         }
 
-        // Evento do botão para salvar
+      
         private void button1_Click(object sender, EventArgs e)
         {
             AtualizarDadosMedico();

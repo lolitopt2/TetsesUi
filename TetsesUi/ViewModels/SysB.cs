@@ -50,7 +50,7 @@ namespace TetsesUi.ViewModels
                             DataTable table = new DataTable();
                             adapter.Fill(table);
 
-                            // Associa os dados ao DataGridView
+                           
                             dataGridView1.DataSource = table;
                         }
                     }

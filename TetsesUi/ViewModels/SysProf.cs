@@ -87,24 +87,24 @@ namespace TetsesUi.ViewModels
         }
         private void txtEmail_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            // Obtem o texto inserido na TextBox
+          
             string email = txtEmail.Text.Trim();
 
-            // Chama o método para verificar se o e-mail é válido
+           
             if (!IsEmailValid(email))
             {
-                // Exibe uma mensagem de erro caso não seja um e-mail válido
+             
                 MessageBox.Show("Por favor, insira um e-mail válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                // Cancela o evento para manter o foco na TextBox
+            
                 e.Cancel = true;
             }
         }
 
-        // Método para verificar se o e-mail é válido
+     
         private bool IsEmailValid(string email)
         {
-            // Expressão regular para validar e-mails
+           
             string emailRegex = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
             return Regex.IsMatch(email, emailRegex);
         }

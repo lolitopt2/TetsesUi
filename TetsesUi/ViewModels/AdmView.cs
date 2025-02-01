@@ -39,16 +39,15 @@ namespace TetsesUi.ViewModels
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Instancia o ControlInfoMed
+       
             ControlInfoMed controlInfoMed = new ControlInfoMed();
 
-            // Instancia o DadosEditMed e passa para o painel do ControlInfoMed
-            DadosEditMed dadosEditMed = new DadosEditMed(); // Instancia o UserControl DadosEditMed
-
-            // Carrega a view ControlInfoMed e o UserControl DadosEditMed no painel
+   
+            DadosEditMed dadosEditMed = new DadosEditMed(); 
+       
             SwitchView(controlInfoMed);
 
-            // Agora, dentro da ControlInfoMed, queremos carregar o DadosEditMed no painel.
+         
             controlInfoMed.CarregarDadosEditMed(dadosEditMed);
         }
 
@@ -64,14 +63,14 @@ namespace TetsesUi.ViewModels
 
         private void LoadView(UserControl view)
         {
-            panelMedico.Controls.Clear(); // Limpa o conteúdo atual do painel
-            view.Dock = DockStyle.Fill; // Faz com que a View preencha o painel
-            panelMedico.Controls.Add(view); // Adiciona a nova View ao painel
+            panelMedico.Controls.Clear(); 
+            view.Dock = DockStyle.Fill; 
+            panelMedico.Controls.Add(view); 
         }
         private void SetDefaultView()
         {
-            PanelVIEW_VisaoSistema homeView = new PanelVIEW_VisaoSistema(); // Instancia a View padrão
-            LoadView(homeView); // Carrega a View padrão no painel
+            PanelVIEW_VisaoSistema homeView = new PanelVIEW_VisaoSistema(); 
+            LoadView(homeView); 
         }
     }
 }

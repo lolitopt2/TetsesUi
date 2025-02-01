@@ -11,22 +11,22 @@ namespace TetsesUi
         public ControlInfoMed()
         {
             InitializeComponent();
-            PreencherProClass();  // Preenche as informações do médico
-            MostrarInfoMedico();  // Exibe as informações preenchidas
+            PreencherProClass();  
+            MostrarInfoMedico(); 
         }
 
         public void CarregarDadosEditMed(DadosEditMed dadosEditMed)
         {
-            // Limpa o painel e adiciona o controle de edição
+           
             panel1.Controls.Clear();
             panel1.Controls.Add(dadosEditMed);
             dadosEditMed.Dock = DockStyle.Fill;
 
-            // Registra o evento para recarregar informações quando os dados forem atualizados
+    
             dadosEditMed.DadosAtualizados += RecarregarInformacoes;
         }
 
-        // Método para preencher os dados de ProClass a partir do banco de dados
+
         private void PreencherProClass()
         {
             try
@@ -64,7 +64,7 @@ namespace TetsesUi
             }
         }
 
-        // Método para exibir as informações do médico nas labels
+
         private void MostrarInfoMedico()
         {
             if (ProClass.MedicoID > 0)
@@ -88,11 +88,11 @@ namespace TetsesUi
             }
         }
 
-        // Método para recarregar informações após atualização
+
         private void RecarregarInformacoes()
         {
-            PreencherProClass(); // Atualiza os dados em ProClass
-            MostrarInfoMedico(); // Atualiza a interface com os novos dados 
+            PreencherProClass(); 
+            MostrarInfoMedico(); 
         }
 
         private void ControlInfoMed_Load(object sender, EventArgs e)

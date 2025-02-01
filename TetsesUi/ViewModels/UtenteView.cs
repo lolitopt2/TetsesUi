@@ -35,35 +35,35 @@ namespace TetsesUi.ViewModels
         }
         public void SwitchView(UserControl newView)
         {
-            panelUtente.Controls.Clear(); // Remove o conteúdo atual do painel
-            panelUtente.Controls.Add(newView); // Adiciona o novo UserControl
-            newView.Dock = DockStyle.Fill; // Faz com que o controle ocupe o painel
+            panelUtente.Controls.Clear(); 
+            panelUtente.Controls.Add(newView); 
+            newView.Dock = DockStyle.Fill; 
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            // Carrega o ControlInfo no painel principal
+   
             var controlInfo = new ControlInfo();
             SwitchView(controlInfo);
 
-            // Instancia e carrega a view DadosEdit dentro do ControlInfo
-            var dadosEdit = new DadosEdit(); // Certifique-se de que DadosEdit é a view correta
+        
+            var dadosEdit = new DadosEdit();
             controlInfo.CarregarDadosEditUtente(dadosEdit);
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            SwitchView(new PanelView_VisaoUTENTE()); // Carrega a view
+            SwitchView(new PanelView_VisaoUTENTE()); 
         }
         private void LoadView(UserControl view)
         {
-            panelUtente.Controls.Clear(); // Limpa o conteúdo atual do painel
-            view.Dock = DockStyle.Fill; // Faz com que a View preencha o painel
-            panelUtente.Controls.Add(view); // Adiciona a nova View ao painel
+            panelUtente.Controls.Clear(); 
+            view.Dock = DockStyle.Fill; 
+            panelUtente.Controls.Add(view);
         }
         private void SetDefaultView()
         {
-            PanelView_VisaoUTENTE homeView = new PanelView_VisaoUTENTE(); // Instancia a View padrão
-            LoadView(homeView); // Carrega a View padrão no painel
+            PanelView_VisaoUTENTE homeView = new PanelView_VisaoUTENTE(); 
+            LoadView(homeView); 
         }
 
         private void button3_Click(object sender, EventArgs e)

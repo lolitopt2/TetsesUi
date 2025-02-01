@@ -19,36 +19,36 @@ namespace TetsesUi.ViewModels
         }
         private void SwitchView(UserControl newView)
         {
-            panelSys.Controls.Clear(); // Remove o conteúdo atual do painel
-            panelSys.Controls.Add(newView); // Adiciona o novo UserControl
-            newView.Dock = DockStyle.Fill; // Faz com que o controle ocupe o painel
+            panelSys.Controls.Clear(); 
+            panelSys.Controls.Add(newView); 
+            newView.Dock = DockStyle.Fill; 
         }
    
 
        
         private void LoadView(UserControl view)
         {
-            panelSys.Controls.Clear(); // Limpa o conteúdo atual do painel
-            view.Dock = DockStyle.Fill; // Faz com que a View preencha o painel
-            panelSys.Controls.Add(view); // Adiciona a nova View ao painel
+            panelSys.Controls.Clear(); 
+            view.Dock = DockStyle.Fill; 
+            panelSys.Controls.Add(view);
         }
         private void SetDefaultView()
         {
-            PanelView_VisaoSistema_Stretched homeView = new PanelView_VisaoSistema_Stretched(); // Instancia a View padrão
-            LoadView(homeView); // Carrega a View padrão no painel
+            PanelView_VisaoSistema_Stretched homeView = new PanelView_VisaoSistema_Stretched(); 
+            LoadView(homeView); 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-           SistemaU.SystemID = 0;  // Resetando o ID do Utente
+           SistemaU.SystemID = 0;  
 
-            // Exibir uma mensagem confirmando o logout
+         
             MessageBox.Show("Você foi desconectado com sucesso.", "Logout", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
           
-            Opening open = new Opening(); // Supondo que LoginForm seja o formulário de login
+            Opening open = new Opening(); 
             open.Show();
-            this.Hide();  // Oculta o formulário atual (opcional)
+            this.Hide(); 
         }
 
         private void pictureBox2_Click_1(object sender, EventArgs e)

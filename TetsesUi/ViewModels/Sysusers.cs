@@ -28,37 +28,37 @@ namespace TetsesUi.ViewModels
 
         private void SwitchView(UserControl newView)
         {
-            panel1.Controls.Clear(); // Remove o conteúdo atual do painel
-            panel1.Controls.Add(newView); // Adiciona o novo UserControl
-            newView.Dock = DockStyle.Fill; // Faz com que o controle ocupe o painel
+            panel1.Controls.Clear(); 
+            panel1.Controls.Add(newView); 
+            newView.Dock = DockStyle.Fill; 
         }
       
 
       
         private void LoadView(UserControl view)
         {
-            panel1.Controls.Clear(); // Limpa o conteúdo atual do painel
-            view.Dock = DockStyle.Fill; // Faz com que a View preencha o painel
-            panel1.Controls.Add(view); // Adiciona a nova View ao painel
+            panel1.Controls.Clear(); 
+            view.Dock = DockStyle.Fill; 
+            panel1.Controls.Add(view); 
         }
       
         private void SetDefaultView()
         {
-            SysProf homeView = new SysProf(); // Instancia a View padrão
-            LoadView(homeView); // Carrega a View padrão no painel
+            SysProf homeView = new SysProf(); 
+            LoadView(homeView);
         }
 
         private void LoadView2(UserControl view)
         {
-            panel2.Controls.Clear(); // Limpa o conteúdo atual do painel
-            view.Dock = DockStyle.Fill; // Faz com que a View preencha o painel
-            panel2.Controls.Add(view); // Adiciona a nova View ao painel
+            panel2.Controls.Clear(); 
+            view.Dock = DockStyle.Fill; 
+            panel2.Controls.Add(view); 
         }
 
         private void SetDefaultView2()
         {
-            SysUtentes homeView = new SysUtentes(); // Instancia a View padrão
-            LoadView2(homeView); // Carrega a View padrão no painel
+            SysUtentes homeView = new SysUtentes();
+            LoadView2(homeView); 
         }
 
     

@@ -27,17 +27,17 @@ namespace TetsesUi.ViewModels
             string nome = textNome.Text;
             string password = textPass.Text;
 
-            bool isLoggedIn = ValidateLogin(nome, password); // Método para validar o login
+            bool isLoggedIn = ValidateLogin(nome, password);
 
             if (isLoggedIn)
             {
-                // Caso o login seja válido, redireciona para a tela principal
+           
                 MessageBox.Show("Login realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Redirecionar para o formulário principal
+        
                 SysView mainForm = new SysView();
                 mainForm.Show();
-                this.Hide();  // Esconde o formulário de login
+                this.Hide();  
             }
             else
             {
@@ -45,7 +45,7 @@ namespace TetsesUi.ViewModels
             }
         }
 
-        // Método que valida o login e armazena os dados do usuário logado na classe SistemaU
+      
         private bool ValidateLogin(string nome, string password)
         {
             
@@ -63,16 +63,16 @@ namespace TetsesUi.ViewModels
                         command.Parameters.AddWithValue("@Nome", nome);
                         command.Parameters.AddWithValue("@Password", password);
 
-                        // Executa a consulta e verifica se retornou algum registro
+                  
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             if (reader.Read())
                             {
-                                // Armazena os dados do usuário logado na classe SistemaU (propriedades estáticas)
+                              
                                 SistemaU.SystemID = reader.GetInt32("SystemID");
                                 SistemaU.Nome = reader.GetString("Nome");
 
-                                return true;  // Login válido
+                                return true;  
                             }
                         }
                     }
@@ -83,7 +83,7 @@ namespace TetsesUi.ViewModels
                 }
             }
 
-            return false; // Login inválido
+            return false; 
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

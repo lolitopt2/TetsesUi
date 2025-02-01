@@ -28,12 +28,12 @@ namespace TetsesUi.ViewModels
 
         public void CarregarDadosEditUtente(DadosEdit dadosEdit)
         {
-            // Limpa o painel e adiciona o controle de edição
+       
             panel1.Controls.Clear();
             panel1.Controls.Add(dadosEdit);
             dadosEdit.Dock = DockStyle.Fill;
 
-            // Registra o evento para recarregar informações quando os dados forem atualizados
+      
             dadosEdit.DadosAtualizados += RecarregarInformacoesUt;
         }
 
@@ -96,8 +96,8 @@ namespace TetsesUi.ViewModels
 
         private void RecarregarInformacoesUt()
         {
-            PreencherLoggedUser(); // Atualiza os dados em ProClass
-            MostrarInfoUtente(); // Atualiza a interface com os novos dados 
+            PreencherLoggedUser(); 
+            MostrarInfoUtente(); 
         }  
     }
 }

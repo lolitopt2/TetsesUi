@@ -25,21 +25,21 @@ namespace TetsesUi
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
-            // Valida se o ID do paciente é um número válido
+     
             if (!int.TryParse(txtIDutente.Text.Trim(), out int utenteID))
             {
                 MessageBox.Show("Por favor, insira um ID de paciente válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Verifica se o paciente existe na base de dados
+           
             if (!PacienteExiste(utenteID))
             {
                 MessageBox.Show("Paciente não encontrado. Verifique o ID inserido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Verifica se a data de início não é posterior à data de fim
+         
             if (txtDataInicio.Value > txtDataFim.Value)
             {
                 MessageBox.Show("A data de início não pode ser posterior à data de fim!", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -48,7 +48,7 @@ namespace TetsesUi
 
             try
             {
-                // Insere a baixa médica na base de dados
+            
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
                     conn.Open();
@@ -70,7 +70,7 @@ namespace TetsesUi
                     }
                 }
 
-                this.DialogResult = DialogResult.OK; // Fecha o formulário com sucesso
+                this.DialogResult = DialogResult.OK;
             }
             catch (Exception ex)
             {
@@ -106,7 +106,7 @@ namespace TetsesUi
                         cmd.Parameters.AddWithValue("@UtenteID", utenteID);
 
                         int count = Convert.ToInt32(cmd.ExecuteScalar());
-                        return count > 0; // Se o paciente existir, retorna true
+                        return count > 0; 
                     }
                 }
             }

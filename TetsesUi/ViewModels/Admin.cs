@@ -65,16 +65,15 @@ namespace TetsesUi.ViewModels.Admin
         }
         private void txtCCnum_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            // Obtem o texto inserido na TextBox
+ 
             string vale = ProNum.Text.Trim();
 
-            // Chama o método para verificar se o e-mail é válido
+           
             if (!IsCCnumlValid(vale))
             {
-                // Exibe uma mensagem de erro caso não seja um e-mail válido
+          
                 MessageBox.Show("Por favor, insira um e-mail válido.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                // Cancela o evento para manter o foco na TextBox
                 e.Cancel = true;
             }
         }
@@ -103,13 +102,13 @@ namespace TetsesUi.ViewModels.Admin
 
             if (isLoggedIn)
             {
-                // Caso o login seja válido, redireciona para a tela principal
+                
                 MessageBox.Show("Login realizado com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                // Redirecionar para o formulário principal
+              
                 AdmView mainForm = new AdmView();
                 mainForm.Show();
-                this.Hide();  // Esconde o formulário de login
+                this.Hide();  
             }
             else
             {

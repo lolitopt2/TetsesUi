@@ -57,10 +57,10 @@ namespace TetsesUi.ViewModels
         }
         private void GerarPDFPorID(int baixaID)
         {
-            // Obtém o ID do Utente armazenado na classe LoggedUser
+         
             int utenteID = LoggedUser.UtenteId;
 
-            // Procura os dados da baixa no banco de dados
+            
             DataRow dadosBaixa = ObterDadosBaixaDoBanco(baixaID);
 
             if (dadosBaixa == null)
@@ -69,25 +69,25 @@ namespace TetsesUi.ViewModels
                 return;
             }
 
-            // Verifica se o ID do Utente corresponde ao ID do Utente na Baixa
+     
             if ((int)dadosBaixa["UtenteID"] != utenteID)
             {
                 MessageBox.Show("O ID do Utente não corresponde ao ID da Baixa. Não é possível escolher o local de salvamento.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return; // Impede a escolha do diretório e geração do PDF
+                return; 
             }
 
-            // Se os IDs coincidirem, abre o diálogo para o usuário escolher a pasta
+           
             DialogResult result = folderBrowserDialog.ShowDialog();
 
             if (result == DialogResult.OK)
             {
-                // Obtém o diretório escolhido pelo usuário
+               
                 string pastaEscolhida = folderBrowserDialog.SelectedPath;
 
-                // Define o caminho completo do arquivo PDF (usando o diretório escolhido)
+          
                 string caminhoPDF = Path.Combine(pastaEscolhida, $"Baixa_{baixaID}.pdf");
 
-                // Cria o documento PDF
+           
                 Document documento = new Document();
                 PdfWriter.GetInstance(documento, new FileStream(caminhoPDF, FileMode.Create));
 
@@ -95,7 +95,7 @@ namespace TetsesUi.ViewModels
                 {
                     documento.Open();
 
-                    // Adiciona o título
+               
                     documento.Add(new Paragraph($"Relatório da Baixa - ID {baixaID}")
                     {
                         Alignment = Element.ALIGN_CENTER,
@@ -104,7 +104,7 @@ namespace TetsesUi.ViewModels
 
                     documento.Add(new Paragraph("\n"));
 
-                    // Adiciona os dados da baixa ao PDF
+                  
                     documento.Add(new Paragraph($"BaixaID: {dadosBaixa["BaixaID"]}"));
                     documento.Add(new Paragraph($"MedicoID: {dadosBaixa["MedicoID"]}"));
                     documento.Add(new Paragraph($"UtenteID: {dadosBaixa["UtenteID"]}"));
@@ -132,7 +132,7 @@ namespace TetsesUi.ViewModels
             }
         }
 
-        // Método para buscar dados no banco de dados
+      
         private DataRow ObterDadosBaixaDoBanco(int baixaID)
         {
        
@@ -162,7 +162,7 @@ namespace TetsesUi.ViewModels
                 MessageBox.Show($"Erro ao buscar dados do banco: {ex.Message}", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            // Retorna a primeira linha se existir
+     
             if (tabela.Rows.Count > 0)
             {
                 return tabela.Rows[0];

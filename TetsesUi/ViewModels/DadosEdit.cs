@@ -15,7 +15,7 @@ namespace TetsesUi.ViewModels
     {
         private string connectionString = "Server=localhost;Database=sns;Uid=root;Pwd=;";
 
-        // Evento para notificar sobre atualizações
+  
         public event Action DadosAtualizados;
         public DadosEdit()
         {
@@ -24,7 +24,7 @@ namespace TetsesUi.ViewModels
             LimparCampos();
         }
 
-        // Método para limpar os campos
+   
         private void LimparCampos()
         {
             txtEmail.Clear();
@@ -32,7 +32,7 @@ namespace TetsesUi.ViewModels
             txtTele.Clear();
         }
 
-        // Método para carregar os dados do utente
+
         public void CarregarDadosUtente()
         {
             try
@@ -45,7 +45,7 @@ namespace TetsesUi.ViewModels
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
-                        cmd.Parameters.AddWithValue("@UtenteID", LoggedUser.UtenteId); // ID do utente logado
+                        cmd.Parameters.AddWithValue("@UtenteID", LoggedUser.UtenteId); 
 
                         using (MySqlDataReader reader = cmd.ExecuteReader())
                         {
@@ -104,7 +104,7 @@ namespace TetsesUi.ViewModels
                         {
                             MessageBox.Show("Dados atualizados com sucesso!", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                            // Dispara o evento de atualização
+                       
                             DadosAtualizados?.Invoke();
                         }
                         else

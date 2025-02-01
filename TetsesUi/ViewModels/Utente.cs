@@ -27,7 +27,7 @@ namespace TetsesUi.ViewModels
         {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
-                e.Handled = true; // Rejeita a entrada
+                e.Handled = true; 
             }
         }
 
@@ -37,24 +37,24 @@ namespace TetsesUi.ViewModels
         {
             try
             {
-                // Conectar ao banco de dados
+              
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
-                    conn.Open(); // Abre a conexão
+                    conn.Open(); 
 
-                    // Consultar se o ccNum e a senha correspondem e pegar o ID do utente
+                  
                     string query = "SELECT UtenteID,Nome,Morada,Telefone,Email FROM utentes WHERE ccNum = @ccNum AND Password = @Password";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@ccNum", ccNum);
-                        cmd.Parameters.AddWithValue("@Password", password); // A senha em texto simples (não recomendado para produção)
+                        cmd.Parameters.AddWithValue("@Password", password); 
 
-                        using (MySqlDataReader reader = cmd.ExecuteReader()) // Executa a consulta
+                        using (MySqlDataReader reader = cmd.ExecuteReader()) 
                         {
-                            if (reader.Read()) // Se encontrar o usuário
+                            if (reader.Read()) 
                             {
-                                // Armazenar o UtenteId e o Nome na classe global LoggedUser
+                               
                                 LoggedUser.UtenteId = Convert.ToInt32(reader["UtenteID"]);
                                 LoggedUser.UtenteName = reader["Nome"].ToString();
                                 LoggedUser.UtenteMorada = reader["Morada"].ToString();
@@ -62,11 +62,11 @@ namespace TetsesUi.ViewModels
                                 LoggedUser.UtenteEmail = reader["Email"].ToString();
 
 
-                                return true; // Login bem-sucedido
+                                return true; 
                             }
                             else
                             {
-                                return false; // Login falhou
+                                return false; 
                             }
                         }
                     }
@@ -82,17 +82,16 @@ namespace TetsesUi.ViewModels
 
         private void LogUten_Click(object sender, EventArgs e)
         {
-            string username = UtNum.Text.Trim(); // Pega o nome de usuário
-            string password = PassTxt.Text.Trim(); // Pega a senha
+            string username = UtNum.Text.Trim(); 
+            string password = PassTxt.Text.Trim(); 
 
-            // Verifica se os campos não estão vazios
+        
             if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
             {
                 MessageBox.Show("Por favor, preencha todos os campos.", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            // Verifica o login
             if (VerifyLogin(username, password))
             {
               

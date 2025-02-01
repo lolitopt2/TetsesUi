@@ -58,15 +58,15 @@ namespace TetsesUi
             {
                 using (MySqlConnection conn = new MySqlConnection(connectionString))
                 {
-                    conn.Open(); // Attempt to open the connection
+                    conn.Open(); 
                     MessageBox.Show("Conectado", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return true; // Connection is successful
+                    return true; 
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ligaçao com erros" + ex.Message, "Connection Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; // Connection failed
+                return false; 
             }
         }
         private void dbload_Click(object sender, EventArgs e)
@@ -75,12 +75,12 @@ namespace TetsesUi
 
             if (dbHelper.VerifyConnection())
             {
-                // Proceed with other actions if the connection is successful
+                
                 MessageBox.Show("Siga para o 20 KappA", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-                // Handle any actions if the connection failed
+               
                 MessageBox.Show("Confirma tudo denovo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
