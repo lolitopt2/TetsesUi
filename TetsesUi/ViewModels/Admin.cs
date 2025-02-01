@@ -21,7 +21,7 @@ namespace TetsesUi.ViewModels.Admin
         }
         private string connectionString = "Server=localhost;Database=sns;Uid=root;Pwd=;";
 
-        // Método que valida o login e armazena os dados do user logado na classe SistemaU
+       
         private bool ValidateLogin(string email, string password)
         {
 
@@ -39,7 +39,7 @@ namespace TetsesUi.ViewModels.Admin
                         command.Parameters.AddWithValue("@CCnum", email);
                         command.Parameters.AddWithValue("@Password", password);
 
-                        // Executa a consulta e verifica se retornou algum registro
+                    
                         using (MySqlDataReader reader = command.ExecuteReader())
                         {
                             if (reader.Read())
