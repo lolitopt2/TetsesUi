@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 28, 2025 at 05:23 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Tempo de geração: 18-Fev-2025 às 05:04
+-- Versão do servidor: 10.4.32-MariaDB
+-- versão do PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `sns`
+-- Banco de dados: `sns`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `baixas`
+-- Estrutura da tabela `baixas`
 --
 
 CREATE TABLE `baixas` (
@@ -39,25 +39,25 @@ CREATE TABLE `baixas` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `baixas`
+-- Extraindo dados da tabela `baixas`
 --
 
 INSERT INTO `baixas` (`BaixaID`, `MedicoID`, `UtenteID`, `DataInicio`, `DataFim`, `Motivo`, `Observacoes`, `estado`) VALUES
-(2, 2, 2, '2024-09-11 17:07:03', '2024-12-27 17:07:03', 'Dor de costas', 'Dor na região lombar das costas', 'Válida'),
+(2, 2, 2, '2024-09-11 17:07:03', '2024-12-27 17:07:03', 'Dor de costas', 'Dor na região lombar das costas', 'Inválida'),
 (3, 5, 6, '2025-01-05 00:52:58', '2025-03-01 00:52:58', 'Dor de garganta', 'Possível infeção', 'Válida'),
-(7, 5, 1, '2025-01-01 14:58:30', '2025-01-07 14:58:30', 'Lesão no pé', 'Ficar em repouso total até recuperação parcial.', 'Válida'),
-(8, 5, 3, '2025-01-01 15:05:19', '2025-01-22 15:05:19', 'Dor de cabeça', 'Tomar Benuron durante duração da baixa.', 'Válida'),
+(7, 5, 1, '2025-01-01 14:58:30', '2025-01-07 14:58:30', 'Lesão no pé', 'Ficar em repouso total até recuperação parcial.', 'Inválida'),
+(8, 5, 3, '2025-01-01 15:05:19', '2025-01-22 15:05:19', 'Dor de cabeça', 'Tomar Benuron durante duração da baixa.', 'Inválida'),
 (9, 5, 5, '2025-01-28 12:43:52', '2025-02-28 12:43:52', 'Fractura no Pé', 'O utente não consegue mobilizar-se e por isso deverá ficar em repouso até demonstrar melhorias significativas.', 'Válida'),
 (11, 5, 5, '2025-01-01 16:15:59', '2028-01-01 16:15:59', 'Dor no peito.', 'Ficar em repouso total durante a duração da baixa.', 'Válida'),
-(12, 6, 10, '2025-01-01 16:15:59', '2025-02-05 16:15:59', 'Visão turva.', 'Ficar em repouso total durante a duração da baixa.', 'Válida'),
+(12, 6, 10, '2025-01-01 16:15:59', '2025-02-05 16:15:59', 'Visão turva.', 'Ficar em repouso total durante a duração da baixa.', 'Inválida'),
 (13, 2, 7, '2025-01-01 16:15:59', '2030-01-01 16:15:59', 'Gota.', 'Ficar em repouso total durante a duração da baixa.', 'Válida'),
 (14, 6, 2, '2025-01-28 17:15:54', '2025-05-01 16:15:59', 'Lesão no olho esquerdo.', 'Ficar em repouso total durante a duração da baixa.', 'Válida'),
-(15, 7, 4, '2023-01-04 16:15:59', '2025-01-11 16:15:59', 'Incapacidade geral de movimentação.', 'Ficar em repouso total durante a duração da baixa.', 'Válida');
+(15, 7, 4, '2023-01-04 16:15:59', '2025-01-11 16:15:59', 'Incapacidade geral de movimentação.', 'Ficar em repouso total durante a duração da baixa.', 'Inválida');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medicos`
+-- Estrutura da tabela `medicos`
 --
 
 CREATE TABLE `medicos` (
@@ -72,7 +72,7 @@ CREATE TABLE `medicos` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `medicos`
+-- Extraindo dados da tabela `medicos`
 --
 
 INSERT INTO `medicos` (`MedicoID`, `Nome`, `Especialidade`, `Email`, `Telefone`, `Password`, `CCnum`, `Instituicao`) VALUES
@@ -90,7 +90,7 @@ INSERT INTO `medicos` (`MedicoID`, `Nome`, `Especialidade`, `Email`, `Telefone`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `system`
+-- Estrutura da tabela `system`
 --
 
 CREATE TABLE `system` (
@@ -101,7 +101,7 @@ CREATE TABLE `system` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `system`
+-- Extraindo dados da tabela `system`
 --
 
 INSERT INTO `system` (`SystemID`, `Nome`, `Email`, `Password`) VALUES
@@ -110,7 +110,7 @@ INSERT INTO `system` (`SystemID`, `Nome`, `Email`, `Password`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `utentes`
+-- Estrutura da tabela `utentes`
 --
 
 CREATE TABLE `utentes` (
@@ -125,7 +125,7 @@ CREATE TABLE `utentes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `utentes`
+-- Extraindo dados da tabela `utentes`
 --
 
 INSERT INTO `utentes` (`UtenteID`, `Nome`, `DataNasc`, `Email`, `Telefone`, `Morada`, `Password`, `ccNum`) VALUES
@@ -141,11 +141,11 @@ INSERT INTO `utentes` (`UtenteID`, `Nome`, `DataNasc`, `Email`, `Telefone`, `Mor
 (10, 'Martim Noite', '2000-10-01', 'martimnoitetoda@hotmail.com', 910777477, 'Rua das Nuvens 167F', '12345', 178520445);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `baixas`
+-- Índices para tabela `baixas`
 --
 ALTER TABLE `baixas`
   ADD PRIMARY KEY (`BaixaID`),
@@ -153,61 +153,71 @@ ALTER TABLE `baixas`
   ADD KEY `MedicoID` (`MedicoID`);
 
 --
--- Indexes for table `medicos`
+-- Índices para tabela `medicos`
 --
 ALTER TABLE `medicos`
   ADD PRIMARY KEY (`MedicoID`);
 
 --
--- Indexes for table `system`
+-- Índices para tabela `system`
 --
 ALTER TABLE `system`
   ADD PRIMARY KEY (`SystemID`);
 
 --
--- Indexes for table `utentes`
+-- Índices para tabela `utentes`
 --
 ALTER TABLE `utentes`
   ADD PRIMARY KEY (`UtenteID`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `baixas`
+-- AUTO_INCREMENT de tabela `baixas`
 --
 ALTER TABLE `baixas`
   MODIFY `BaixaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
--- AUTO_INCREMENT for table `medicos`
+-- AUTO_INCREMENT de tabela `medicos`
 --
 ALTER TABLE `medicos`
   MODIFY `MedicoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `system`
+-- AUTO_INCREMENT de tabela `system`
 --
 ALTER TABLE `system`
   MODIFY `SystemID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `utentes`
+-- AUTO_INCREMENT de tabela `utentes`
 --
 ALTER TABLE `utentes`
   MODIFY `UtenteID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
--- Constraints for table `baixas`
+-- Limitadores para a tabela `baixas`
 --
 ALTER TABLE `baixas`
   ADD CONSTRAINT `baixas_ibfk_1` FOREIGN KEY (`MedicoID`) REFERENCES `medicos` (`MedicoID`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `baixas_ibfk_2` FOREIGN KEY (`UtenteID`) REFERENCES `utentes` (`UtenteID`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+DELIMITER $$
+--
+-- Eventos
+--
+CREATE DEFINER=`root`@`localhost` EVENT `AtualizarEstadoBaixas` ON SCHEDULE EVERY 1 DAY STARTS '2025-02-18 03:58:46' ON COMPLETION NOT PRESERVE ENABLE DO UPDATE baixas
+SET estado = 'Inválida'
+WHERE DataFim < NOW() AND estado = 'Válida'$$
+
+DELIMITER ;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
